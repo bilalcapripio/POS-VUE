@@ -4,6 +4,7 @@
                 <Navbar/>
                     <!-- /.content-wrapper -->
                     <div class="content-wrapper p-2 mb-5">
+                        <h1 class="lead pt-2 px-4">New Purchase</h1>
                         <div class="content-header">
                             <div class="container-fluid">
                                     <!-- alert start -->
@@ -23,7 +24,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <form>
-                                                    <label>Customer Name <span class="text-danger">*</span></label>
+                                                    <label>Supplier Name <span class="text-danger">*</span></label>
                                                     <select id="inputState" class="form-control">
                                                         <option selected>Choose...</option>
                                                         <option>Walk-In Customer</option>
@@ -33,23 +34,22 @@
                                                         <option>Walk-In Customer</option>
                                                     </select>                                
                                                     <br>
-                                                    <label>Sales Date <span class="text-danger">*</span></label>
+                                                    <label>Status  <span class="text-danger">*</span></label>
                                                     <select id="inputState" class="form-control">
                                                         <option selected>Choose...</option>
-                                                        <option>Walk-In Customer</option>
-                                                        <option>Walk-In Customer</option>
-                                                        <option>Walk-In Customer</option>
-                                                        <option>Walk-In Customer</option>
-                                                        <option>Walk-In Customer</option>
+                                                        <option>Recieved</option>
+                                                        <option>Recieved</option>
+                                                        <option>Recieved</option>
+
                                                     </select>       
                                                 </form>
                                             </div>
                                             <div class="col-md-6">
                                                 <form>
-                                                        <label>Customer Name <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="First name">
+                                                        <label> Purchase Date <span class="text-danger">*</span></label>
+                                                        <input type="date" class="form-control" placeholder="First name">
                                                         <br>
-                                                        <label>Customer Name <span class="text-danger">*</span></label>
+                                                        <label> Refrence no <span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control" placeholder="Last name">
                                                 </form>
                                             </div>
@@ -142,19 +142,19 @@
                                                     <tbody><tr>
                                                     <th class="text-right" style="font-size: 20px;">Subtotal</th>
                                                     <th class="text-right" style="padding-left:10%;font-size: 20px;">
-                                                        <h4><b id="subtotal_amt" name="subtotal_amt">0.00</b></h4>
+                                                        <h4><b>0.00</b></h4>
                                                     </th>
                                                     </tr>
                                                     <tr>
                                                     <th class="text-right" style="font-size: 20px;">Other Charges</th>
                                                     <th class="text-right" style="padding-left:10%;font-size: 20px;">
-                                                        <h4><b id="other_charges_amt" name="other_charges_amt">0.00</b></h4>
+                                                        <h4><b>0.00</b></h4>
                                                     </th>
                                                     </tr>
                                                     <tr>
                                                     <th class="text-right" style="font-size: 20px;">Discount on All</th>
                                                     <th class="text-right" style="padding-left:10%;font-size: 20px;">
-                                                        <h4><b id="discount_to_all_amt" name="discount_to_all_amt">0.00</b></h4>
+                                                        <h4><b>0.00</b></h4>
                                                     </th>
                                                     </tr>
                                                     <tr style="display: none;">
@@ -164,13 +164,13 @@
                                                         
                                                     </th>
                                                     <th class="text-right" style="padding-left:10%;font-size: 20px;">
-                                                        <h4><b id="round_off_amt" name="tot_round_off_amt">0.00</b></h4>
+                                                        <h4><b>0.00</b></h4>
                                                     </th>
                                                     </tr>
                                                     <tr>
                                                     <th class="text-right" style="font-size: 20px;">Grand Total</th>
                                                     <th class="text-right" style="padding-left:10%;font-size: 17px;">
-                                                        <h4><b id="total_amt" name="total_amt">0.00</b></h4>
+                                                        <h4><b>0.00</b></h4>
                                                     </th>
                                                     </tr>
                                                 </tbody></table>
@@ -206,7 +206,7 @@
                                     <br>
                                     <br>
                                     <div class="col-md-12 payments_div payments_div_">
-                                        <h4 class="box-title text-info">Subtotal :</h4>
+                                        <h4 class="box-title text-info">Make Payment :</h4>
                                         <div class="box box-solid bg-gray p-3">        
                                         <div class="box-body">
                                             <div class="row">

@@ -41,8 +41,7 @@
                                                         </label>
                                                         </div><div id="example2_processing" class="dataTables_processing panel panel-default" style="display: none;"></div></div><div class="pull-right margin-left-10 ">
                                                         <div class="dt-buttons btn-group mt-4 mr-2">              
-                                                        <button class="btn btn-default bg-red color-palette btn-flat hidden delete_btn pull-left" tabindex="0" aria-controls="example2" type="button">
-                                                        <span>Delete</span></button> <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
+                                                        <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
                                                         <span>CSV</span></button> 
                                                         <button class="btn btn-default buttons-collection buttons-colvis bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button" aria-haspopup="true"><span>Columns</span></button> 
                                                         </div></div></div>
@@ -50,47 +49,80 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="box-body">
-                                                        <table id="example2" class="table table-bordered table-striped dataTable dtr-inline" width="100%" role="grid" aria-describedby="example2_info" style="width: 100%;"><thead class="bg-primary ">
-                                                            <tr role="row">
-                                                            <th class="text-center sorting_disabled" rowspan="1" colspan="1" style="width: 37px;" aria-label="">
-                                                                <div class="icheckbox_square-orange" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" class="group_check checkbox" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                                            </th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 75px;" aria-label="Date: activate to sort column ascending">Date</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 94px;" aria-label="Category: activate to sort column ascending">Category</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 135px;" aria-label="Reference No.: activate to sort column ascending">Reference No.</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 115px;" aria-label="Expense for: activate to sort column ascending">Expense for</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 85px;" aria-label="Amount: activate to sort column ascending">Amount</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 206px;" aria-label="Note: activate to sort column ascending">Note</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 108px;" aria-label="Created by: activate to sort column ascending">Created by</th><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 112px;" aria-label="Action">Action</th></tr>
+                                                        <table id="example2" class="table table-bordered table-striped dataTable dtr-inline" width="100%" role="grid" aria-describedby="example2_info" style="width: 100%;">
+                                                            <thead class="bg-primary ">
+                                                                <tr role="row">
+                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 75px;" >Date</th>
+                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 94px;" >Category</th>
+                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 135px;">Reference No.</th>
+                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 115px;">Expense for</th>
+                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 85px;">Amount</th>
+                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 206px;">Note</th>
+                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 108px;">Created by</th>
+                                                                    <th class="sorting" rowspan="1" colspan="1" style="width: 112px;">Action</th>
+                                                                </tr>
                                                             </thead>                         
                                                         <tbody>    
-                                                            <tr role="row" class="odd"><td class=" text-center" tabindex="0"><div class="icheckbox_square-orange" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" name="checkbox[]" value="24" class="checkbox column_checkbox" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td><td>06-02-2021</td><td>Office Vehicle</td><td>101</td><td>Sumit</td><td>200.00</td><td>Repairing the vehicle</td><td>Admin</td><td><div class="btn-group" title="View Account">
-                                                                <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                    Action <span class="caret"></span>
-                                                                </a>
-                                                                <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                        <a title="Edit Record ?" href="#">
-                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                        </a>
-                                                                    </li><li>
-                                                                        <a style="cursor:pointer" title="Delete Record ?" onclick="delete_expense(24)">
-                                                                            <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                        </a>
-                                                                    </li>  
-                                                                </ul>
-                                                                </div></td></tr><tr role="row" class="even"><td class=" text-center" tabindex="0"><div class="icheckbox_square-orange" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" name="checkbox[]" value="23" class="checkbox column_checkbox" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td><td>06-02-2021</td><td>Petrol</td><td>101</td><td>Ali</td><td>200.00</td><td>Petrol expense information</td><td>Admin</td><td><div class="btn-group" title="View Account">
-                                                                    <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                        Action <span class="caret"></span>
-                                                                    </a>
-                                                                    <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                            <a href="#">
-                                                                                <i class="fa fa-edit text-blue"></i>Edit
+                                                                <tr role="row">
+                                                                    <td>06-02-2021</td>
+                                                                    <td>Office Vehicle</td>
+                                                                    <td>101</td>
+                                                                    <td>Sumit</td>
+                                                                    <td>200.00</td>
+                                                                    <td>Repairing the vehicle</td>
+                                                                    <td>Admin</td>
+                                                                    <td>
+                                                                        <div class="btn-group" title="View Account">
+                                                                            <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
+                                                                                Action <span class="caret"></span>
                                                                             </a>
-                                                                        </li><li>
-                                                                            <a href="#">
-                                                                                <i class="fa fa-trash text-red"></i>Delete
+                                                                            <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
+                                                                                    <a title="Edit Record ?" href="#">
+                                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
+                                                                                    </a>
+                                                                                </li><li>
+                                                                                    <a style="cursor:pointer" title="Delete Record ?" onclick="delete_expense(24)">
+                                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
+                                                                                    </a>
+                                                                                </li>  
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr role="row">
+                                                                    <td>06-02-2021</td>
+                                                                    <td>Office Vehicle</td>
+                                                                    <td>101</td>
+                                                                    <td>Sumit</td>
+                                                                    <td>200.00</td>
+                                                                    <td>Repairing the vehicle</td>
+                                                                    <td>Admin</td>
+                                                                    <td>
+                                                                        <div class="btn-group" title="View Account">
+                                                                            <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
+                                                                                Action <span class="caret"></span>
                                                                             </a>
-                                                                        </li>
-                                                                        
-                                                                    </ul>
-                                                                </div></td></tr>
-                                                                    </tbody>
+                                                                            <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
+                                                                                    <a title="Edit Record ?" href="#">
+                                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
+                                                                                    </a>
+                                                                                </li><li>
+                                                                                    <a style="cursor:pointer" title="Delete Record ?" onclick="delete_expense(24)">
+                                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
+                                                                                    </a>
+                                                                                </li>  
+                                                                            </ul>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                        </tbody>
                                                             <tfoot class="bg-gray">
-                                                            <tr class=""><th colspan="5" style="text-align:right" class="text-center" rowspan="1">Total</th><th rowspan="1" colspan="1">400.0</th><th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th></tr>
-                                                        </tfoot>         
+                                                                <tr class="">
+                                                                    <th colspan="4" style="text-align:right" class="text-center" rowspan="1">Total</th>
+                                                                    <th rowspan="1" colspan="1">400.0</th><th rowspan="1" colspan="1"></th>
+                                                                    <th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th>
+                                                                </tr>
+                                                            </tfoot>         
                                                         </table>
                                                         <div class="next d-flex justify-content-between align-items-center">
                                                             <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to 10 of 22 entries</div><div class="dataTables_paginate paging_simple_numbers" id="example2_paginate"></div>

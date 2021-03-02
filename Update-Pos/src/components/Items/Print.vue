@@ -3,7 +3,7 @@
             <div>
                 <Navbar/>
                     <!-- /.content-wrapper -->
-                        <div class="content-wrapper p-2">
+                        <div class="p-2">
                                 <div class="content-wrapper">
                                         <!---Start Third card shop-->
                                         <h2 class="text-md ml-4 pt-3"><span class="text-lg"> Print Labels </span>   Add/ <small class="text-gray text-sm"><span>Update Sales</span></small></h2>
@@ -49,6 +49,7 @@
                                                         <p class="text-success display-4 text-bold">0</p>
                                                     </div>
                                                     <button class="btn btn-danger w-25">Preview</button>
+                                                    &nbsp;
                                                     <button class="btn btn-warning w-25">Close</button>
                                                 </div>
                                                 <div class="card-footer border-top border-primary">

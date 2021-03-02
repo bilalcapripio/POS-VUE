@@ -9,6 +9,9 @@ import Add_Expence_Category from '@/components/Expence/Expence-Category.vue';
 import Expences from '@/components/Expence/Expence-List.vue';
 import Add_Expence from '@/components/Expence/New-Expence.vue';
 import Add_item_Brand from '@/components/Items/Brand.vue';
+import Print from '@/components/Items/Print.vue';
+import Send from '@/components/Sms/Send.vue';
+import  Template from '@/components/Sms/Template.vue';
 import item_Brand from '@/components/Items/Brand-List.vue';
 import Add_item_Category from '@/components/Items/Category.vue';
 import item_Category from '@/components/Items/Category-List.vue';
@@ -60,6 +63,14 @@ const routes=[
     {path:'/Add_Expence_Category', name:'Add_Expence_Category', component:Add_Expence_Category},
     {path:'/Expences', name:'Expences', component:Expences},
     {path:'/Add_Expence', name:'Add_Expence', component:Add_Expence},
+
+    {path:'/Print', name:'Print', component:Print},
+
+    {path:'/Send', name:'Send', component:Send},
+
+    {path:'/Template', name:'Template', component:Template},
+
+
     {path:'/Add_item_Brand', name:'Add_item_Brand', component:Add_item_Brand},
     {path:'/item_Brand', name:'item_Brand', component:item_Brand},    
     {path:'/Add_item_Category', name:'Add_item_Category', component:Add_item_Category},
