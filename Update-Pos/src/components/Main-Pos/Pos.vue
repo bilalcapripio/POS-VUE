@@ -172,11 +172,81 @@
                                                             <!-- body code -->
                                                             <tr v-for="(content , index) in tableRows" v-bind:key="content.id">
                                                                 <td>
-                                                                    <button class="fa fa-edit pointer" @click="edit = !edit">
-                                                                        &nbsp;
-                                                                        <a title="" class="pointer text-bold">Rado Watch </a> 
-                                                                    </button>
-                                                                    </td>
+                                                                    <a title="" class="pointer text-bold">Rado Watch </a> 
+                                                                        <span  data-toggle="modal" data-target="#exampleModalLong"> <i class="fa fa-edit"></i></span>
+                                                                        <!-- Modal -->
+                                                                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                                                        <div class="modal-dialog" role="document">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header" style="background-image: -webkit-gradient(linear, left top, right top, from(rgba(32 185 174)), to(rgba(0 111 214)));color: rgb(255 255 255);">
+                                                                                        <h5 class="modal-title text-center lead " id="exampleModalLongTitle"> Manage Sales Items</h5>
+                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true" class="text-light">&times;</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                        <form class=" py-3 px-3 bg-gray">
+                                                                                            <div class="form-row">
+                                                                                            <div class="col-md-6">
+                                                                                                    <div class="form-group">
+                                                                                                        <label>Tax Type</label>
+                                                                                                        <select class="form-control" style="width: 100%;">
+                                                                                                        <option value="Exclusive">Exclusive</option>
+                                                                                                        <option value="Inclusive">Inclusive</option>
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                             </div>
+                                                                                                <div class="col-md-6 mb-3">
+                                                                                                    <div class="form-group">
+                                                                                                        <label>Tax</label>
+                                                                                                        <select class="form-control">
+                                                                                                            <option value="Vat 5%">Vat 5%</option>  
+                                                                                                            <option value="Tax 5%">Tax 5%</option>  
+                                                                                                            <option value="Tax 10%">Tax 10%</option>  
+                                                                                                            <option value="Gst 4.5%">Gst 4.5%</option>  
+                                                                                                            <option value="Vat 5%">SGST 10%</option>  
+                                                                                                            <option value="Vat 5%">IGST 15%</option>  
+                                                                                                            <option value="Vat 5%">SGST 8%</option>  
+                                                                                                            <option value="Vat 5%">IGST 6%</option>  
+                                                                                                            <option value="Vat 5%">Gst 9%</option>  
+
+                                                                                                        </select>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                           </div>
+                                                                                            <div class="form-row">
+                                                                                                <div class="col-md-6">
+                                                                                                        <div class="form-group">
+                                                                                                            <label>Discount Type</label>
+                                                                                                            <select class="form-control" style="width: 100%;">
+                                                                                                            <option value="Exclusive">Percent (%)</option>
+                                                                                                            <option value="Exclusive">Fixed (Rs)</option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                                <div class="col-md-6 mb-3">
+                                                                                                    <label for="validationDefault02">Discount</label>
+                                                                                                    <input type="text" class="form-control" id="validationDefault02" placeholder="0"  required>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="form-row">
+                                                                                                <div class="col-md-12">
+                                                                                                    <div class="form-group">
+                                                                                                        <label for="exampleFormControlTextarea1">Description</label>
+                                                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </form>
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                                        <button type="button" class="btn btn-success" data-dismiss="modal">Set <i class="fa fa-check fa-x2"></i></button>
+                                                                                    </div>
+                                                                                </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
                                                                 <td>54.00</td>
                                                                 <td>
                                                                     <div class="input-group input-group-sm">
@@ -334,7 +404,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Armani Jacket
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -351,7 +421,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -367,12 +437,15 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                          
                                         </div>
                                         <div class="row mt-2">
                                             <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
@@ -385,7 +458,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -401,74 +474,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>₹ 20,768.00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>₹ 20,768.00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>₹ 20,768.00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -485,7 +491,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -501,7 +507,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -519,7 +525,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -535,7 +541,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -552,7 +558,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -568,7 +574,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -586,7 +592,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -602,7 +608,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -619,7 +625,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -635,7 +641,7 @@
                                                         <center class="py-3">
                                                         <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
                                                         <br>    
-                                                            <span>₹ 20,768.00</span>
+                                                            <span>$20,00</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -660,7 +666,6 @@ export default {
             tableRows:[],
             counter:0,
             incre:0,
-            edit : true
 
         }
     },
