@@ -3,7 +3,7 @@
             <div>
                 <Navbar/>
                     <!-- /.content-wrapper -->
-                        <div class="content-wrapper p-2">
+                        <div class="content-wrapper p-2 mb-5">
                             <div class="content-header">
                                     <!---Start Third card shop-->
                                     <h2 class="text-md">Purchase Return  List View / <small class="text-gray text-sm"><span>Search Purchase Items</span></small></h2>
@@ -100,8 +100,7 @@
                                                         </label>
                                                         </div><div id="example2_processing" class="dataTables_processing panel panel-default" style="display: none;"></div></div><div class="pull-right margin-left-10 ">
                                                         <div class="dt-buttons btn-group mt-4 mr-2">              
-                                                        <button class="btn btn-default bg-red color-palette btn-flat hidden delete_btn pull-left" tabindex="0" aria-controls="example2" type="button">
-                                                        <span>Delete</span></button> <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
+                                                        <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
                                                         <span>CSV</span></button> 
                                                         <button class="btn btn-default buttons-collection buttons-colvis bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button" aria-haspopup="true"><span>Columns</span></button> 
                                                         </div></div></div>
@@ -109,93 +108,139 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="box-body">
-                                                        <table id="example2" class="table table-bordered table-striped dataTable dtr-inline" width="100%" role="grid" aria-describedby="example2_info" style="width: 100%;">
+                                                        <table  class="table table-bordered table-striped dataTable" width="100%" role="grid" style="width: 100%;">
                                                                 <thead class="bg-primary ">
                                                                     <tr role="row">
-                                                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 70px;" aria-label="Purchase Date: activate to sort column ascending">Date</th>
-                                                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 70px;" aria-label="Purchase Date: activate to sort column ascending">Purchase Date</th>
-                                                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 93px;" aria-label="Purchase Code: activate to sort column ascending">Purchase Code</th>
-                                                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 79px;" aria-label="Purchase Status: activate to sort column ascending">Purchase Status</th>
-                                                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 69px;" aria-label="Reference No.: activate to sort column ascending">Reference No.</th>
-                                                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 73px;" aria-label="Supplier Name: activate to sort column ascending">Supplier Name</th>
-                                                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 41px;" aria-label="Total: activate to sort column ascending">Total</th>
-                                                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 67px;" aria-label="Paid Payment: activate to sort column ascending">Paid Payment</th>
-                                                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 41px;" aria-label="Due: activate to sort column ascending">Due</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 71px;" aria-label="Payment Status: activate to sort column ascending">Payment Status</th>
-                                                                            <th rowspan="1" colspan="1" style="width: 52px;" aria-label="Created by">Created by</th>
-                                                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 53px;" aria-label="Action: activate to sort column ascending">Action</th>
+                                                                            <th class="sorting" rowspan="1" colspan="1" style="width: 70px;">Date</th>
+                                                                            <th class="sorting" rowspan="1" colspan="1" style="width: 70px;">Purchase Date</th>
+                                                                            <th class="sorting" rowspan="1" colspan="1" style="width: 93px;">Purchase <br> Code</th>
+                                                                            <th class="sorting" rowspan="1" colspan="1" style="width: 79px;">Purchase Status</th>
+                                                                            <th class="sorting" rowspan="1" colspan="1" style="width: 69px;">Reference No.</th>
+                                                                            <th class="sorting" rowspan="1" colspan="1" style="width: 73px;">Supplier Name</th>
+                                                                            <th class="sorting" rowspan="1" colspan="1" style="width: 41px;">Total</th>
+                                                                            <th class="sorting" rowspan="1" colspan="1" style="width: 67px;">Paid Payment</th>
+                                                                            <th class="sorting" rowspan="1" colspan="1" style="width: 41px;">Due</th>
+                                                                            <th class="sorting"  rowspan="1" colspan="1" style="width: 71px;">Payment Status</th>
+                                                                            <th class="sorting"  rowspan="1" colspan="1" style="width: 53px;">Action</th>
                                                                     </tr>
                                                                 </thead>   
                                                                 <tbody>
                                                                     <tr role="row">
-                                                                            <div style="position: relative;">
-                                                                                <td>01-07-2020</td>
-                                                                                <td>PU0016</td>
-                                                                                <td>PR0002</td>
-                                                                                <td>Return</td>
-                                                                                <td></td>
-                                                                                <td>John</td>
-                                                                                <td>550.00</td>
-                                                                                <td>550.00</td>
-                                                                                <td>0.00</td>
-                                                                                <td><span class="label label-success" style="cursor:pointer"> Paid </span></td>
-                                                                                <td><span class="bg-success p-2 rounded">Admin</span></td>
-                                                                                <td>
-                                                                                    <div class="btn-group" title="View Account">
-                                                                                        <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                                    Action <span class="caret"></span>
-                                                                                        </a>
-                                                                                        <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                                            <li>
-                                                                                                <a title="View Invoice" href="#">
-                                                                                                    <i class="fa fa-fw fa-eye text-blue"></i>View Purchase
-                                                                                                </a>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </div>
-                                                                    </tr>   
-                                                                    <tr role="row">
-                                                                        <div style="position: relative;">
                                                                             <td>01-07-2020</td>
-                                                                            <td>PU0016</td>
+                                                                            <td>SL0031</td>
                                                                             <td>PR0002</td>
                                                                             <td>Return</td>
                                                                             <td></td>
-                                                                            <td>John</td>
-                                                                            <td>550.00</td>
-                                                                            <td>550.00</td>
+                                                                            <td> Justin Han</td>
+                                                                            <td>660.00</td>
+                                                                            <td>660.00</td>
                                                                             <td>0.00</td>
-                                                                            <td><span class="label label-success" style="cursor:pointer"> Paid </span></td>
-                                                                            <td><span class="bg-success p-2 rounded">Admin</span></td>
+                                                                            <td> <span class="label label-success" style="cursor:pointer"> Paid </span></td>
                                                                             <td>
-                                                                                <div class="btn-group" title="View Account">
-                                                                                    <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
+                                                                                <div class="btn-group">
+                                                                                            <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
                                                                                                 Action <span class="caret"></span>
-                                                                                    </a>
-                                                                                    <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                                        <li>
-                                                                                            <a title="View Invoice" href="#">
-                                                                                                <i class="fa fa-fw fa-eye text-blue"></i>View Purchase
                                                                                             </a>
-                                                                                        </li>
-                                                                                    </ul>
+                                                                                            <ul role="menu" class="dropdown-menu dropdown-light"><li>
+                                                                                                    <a title="View Invoice" href="#">
+                                                                                                        <i class="fa fa-fw fa-eye text-blue"></i>View Purchase
+                                                                                                    </a>
+                                                                                                </li><li>
+                                                                                                    <a title="Update Record ?" href="#">
+                                                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
+                                                                                                    </a>
+                                                                                                </li><li>
+                                                                                                    <a title="Pay" class="pointer">
+                                                                                                        <i class="fa fa-fw fa-money text-blue"></i>View Payments
+                                                                                                    </a>
+                                                                                                </li><li>
+                                                                                                    <a title="Pay" class="pointer">
+                                                                                                        <i class="fa fa-fw fa-hourglass-half text-blue"></i>Pay Now
+                                                                                                    </a>
+                                                                                                </li><li>
+                                                                                                    <a title="Update Record ?" target="_blank" href="#">
+                                                                                                        <i class="fa fa-fw fa-print text-blue"></i>Print
+                                                                                                    </a>
+                                                                                                </li>
+                                                                                                <li>
+                                                                                                    <a title="Update Record ?" target="_blank" href="#">
+                                                                                                        <i class="fa fa-fw fa-file-pdf-o text-blue"></i>PDF
+                                                                                                    </a>
+                                                                                                </li><li>
+                                                                                                    <a style="cursor:pointer" title="Delete Record ?">
+                                                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
+                                                                                                    </a>
+                                                                                                </li>
+                                                                                                
+                                                                                            </ul>
                                                                                 </div>
                                                                             </td>
-                                                                        </div>
-                                                                    </tr>             
+                                                                    </tr>
+                                                                    <tr role="row">
+                                                                            <td>01-07-2020</td>
+                                                                            <td>SL0031</td>
+                                                                            <td>PR0002</td>
+                                                                            <td>Return</td>
+                                                                            <td></td>
+                                                                            <td> John Clark</td>
+                                                                            <td>660.00</td>
+                                                                            <td>660.00</td>
+                                                                            <td>0.00</td>
+                                                                            <td> <span class="label label-success" style="cursor:pointer"> Paid </span></td>
+                                                                            <td>
+                                                                                <div class="btn-group">
+                                                                                            <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
+                                                                                                Action <span class="caret"></span>
+                                                                                            </a>
+                                                                                            <ul role="menu" class="dropdown-menu dropdown-light"><li>
+                                                                                                    <a title="View Invoice" href="#">
+                                                                                                        <i class="fa fa-fw fa-eye text-blue"></i>View Purchase
+                                                                                                    </a>
+                                                                                                </li><li>
+                                                                                                    <a title="Update Record ?" href="#">
+                                                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
+                                                                                                    </a>
+                                                                                                </li><li>
+                                                                                                    <a title="Pay" class="pointer">
+                                                                                                        <i class="fa fa-fw fa-money text-blue"></i>View Payments
+                                                                                                    </a>
+                                                                                                </li><li>
+                                                                                                    <a title="Pay" class="pointer">
+                                                                                                        <i class="fa fa-fw fa-hourglass-half text-blue"></i>Pay Now
+                                                                                                    </a>
+                                                                                                </li><li>
+                                                                                                    <a title="Update Record ?" target="_blank" href="#">
+                                                                                                        <i class="fa fa-fw fa-print text-blue"></i>Print
+                                                                                                    </a>
+                                                                                                </li>
+                                                                                                <li>
+                                                                                                    <a title="Update Record ?" target="_blank" href="#">
+                                                                                                        <i class="fa fa-fw fa-file-pdf-o text-blue"></i>PDF
+                                                                                                    </a>
+                                                                                                </li><li>
+                                                                                                    <a style="cursor:pointer" title="Delete Record ?">
+                                                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
+                                                                                                    </a>
+                                                                                                </li>
+                                                                                                
+                                                                                            </ul>
+                                                                                </div>
+                                                                            </td>
+                                                                    </tr>
                                                                 </tbody>
                                                                 <tfoot>
-                                                                <tr class="bg-gray">
-                                                                    <th colspan="6" style="text-align:right" class="text-center" rowspan="1">Total</th>
+                                                                    <tr class="bg-gray">
+                                                                    <th colspan="5" style="text-align:right" class="text-center" rowspan="1">Total</th>
                                                                     <th rowspan="1" colspan="1">1,100.0</th>
                                                                     <th rowspan="1" colspan="1">1,100.0</th>
                                                                     <th rowspan="1" colspan="1">0.0</th>
                                                                     <th rowspan="1" colspan="1"></th>
-                                                                    <th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th>
-                                                                </tr>
+                                                                    <th rowspan="1" colspan="1"></th>
+                                                                    <th rowspan="1" colspan="1"></th>
+                                                                    </tr>
                                                                 </tfoot>
                                                         </table>
+                                                        
                                                         <div class="next d-flex justify-content-between align-items-center">
                                                             <div role="status" aria-live="polite">Showing 1 to 10 of 22 entries</div>
                                                             <nav aria-label="Page navigation example">
