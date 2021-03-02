@@ -42,6 +42,11 @@ import Sales from '@/components/Sales-Page/Sales-List.vue';
 import Add_Sale_Return from '@/components/Sales-Page/Sales-Return.vue';
 import Sale_Returns from '@/components/Sales-Page/Sales-RL.vue';
 import Currency from '@/components/Setting/Currency.vue';
+
+
+import Payments from '@/components/Setting/Payments';
+
+
 import Password from '@/components/Setting/Password.vue';
 import Payment from '@/components/Setting/Payment.vue';
 import Profile from '@/components/Setting/Profile.vue';
@@ -63,14 +68,10 @@ const routes=[
     {path:'/Add_Expence_Category', name:'Add_Expence_Category', component:Add_Expence_Category},
     {path:'/Expences', name:'Expences', component:Expences},
     {path:'/Add_Expence', name:'Add_Expence', component:Add_Expence},
-
     {path:'/Print', name:'Print', component:Print},
-
+    {path:'/Payments', name:'Payments', component:Payments},
     {path:'/Send', name:'Send', component:Send},
-
     {path:'/Template', name:'Template', component:Template},
-
-
     {path:'/Add_item_Brand', name:'Add_item_Brand', component:Add_item_Brand},
     {path:'/item_Brand', name:'item_Brand', component:item_Brand},    
     {path:'/Add_item_Category', name:'Add_item_Category', component:Add_item_Category},

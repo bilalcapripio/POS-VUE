@@ -267,13 +267,13 @@
                                                                     </div>
                                                                 </td>
                                                                 <td class="text-right"  name="Price">
-                                                                    <input  type="text" class="form-control no-padding min_width" value="20768.00">
+                                                                    <input  type="text" class="form-control no-padding" v-model="Price">
                                                                 </td>
                                                                 <td>
-                                                                    <input  title="" type="text" class="form-control no-padding pointer">
+                                                                    <input  title="" type="text" class="form-control no-padding pointer" value="3.00">
                                                                 </td>
                                                                 <td  class="text-right">
-                                                                    <input type="text" class="form-control no-padding pointer">
+                                                                    <input type="text" class="form-control no-padding pointer" value="20.00">
                                                                 </td>
                                                                 <td @click='deleteTableRow(index)' >
                                                                     <a class="fa fa-fw fa-trash-o text-red" style="cursor: pointer;font-size: 20px;"></a>
@@ -305,12 +305,12 @@
                                             <div class="col-md-4 text-right">
                                                 <b>Quantity:</b>
                                                 <br>
-                                                 <span class="text-primary text-bold">0</span>
+                                                <span class="text-primary text-bold">{{quantity}}</span>
                                             </div>
                                             <div class="col-md-4 text-right">
                                                 <b>Total Amount:</b>
                                                 <br>
-                                                <span class="text-primary text-bold">0.00</span>
+                                                <span class="text-primary text-bold">0</span>
                                             </div>    
                                             <!-- <div class="col-md-3 text-right">
                                                 <b>Total Discount:</b>
@@ -445,7 +445,71 @@
                                             </div>
                                         </div>
                                         <div class="row mt-2">
-                                          
+                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
+                                                <div class="box box-default bg-success border" style="border-radius:5px">
+                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
+                                                    <div class="box-body box-profile">
+                                                        <center class="pt-1">
+                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
+                                                        </center>
+                                                        <center class="py-3">
+                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
+                                                        <br>    
+                                                            <span>$20,00</span>
+                                                        </label>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
+                                                <div class="box box-default bg-success border" style="border-radius:5px">
+                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
+                                                    <div class="box-body box-profile">
+                                                        <center class="pt-1">
+                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
+                                                        </center>
+                                                        <center class="py-3">
+                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
+                                                        <br>    
+                                                            <span>$20,00</span>
+                                                        </label>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
+                                                <div class="box box-default bg-success border" style="border-radius:5px">
+                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
+                                                    <div class="box-body box-profile">
+                                                        <center class="pt-1">
+                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
+                                                        </center>
+                                                        <center class="py-3">
+                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
+                                                        <br>    
+                                                            <span>$20,00</span>
+                                                        </label>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
+                                                <div class="box box-default bg-success border" style="border-radius:5px">
+                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
+                                                    <div class="box-body box-profile">
+                                                        <center class="pt-1">
+                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
+                                                        </center>
+                                                        <center class="py-3">
+                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
+                                                        <br>    
+                                                            <span>$20,00</span>
+                                                        </label>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row mt-2">
                                             <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
@@ -666,7 +730,8 @@ export default {
             tableRows:[],
             counter:0,
             incre:0,
-
+            quantity:0,
+            Price:20.00
         }
     },
     
@@ -674,11 +739,13 @@ export default {
             addTableRow: function () { 
             this.counter++;
             this.tableRows.push("Table Row "+this.counter);
+            this.quantity++;
             },
             // alert('Vue js')
             deleteTableRow: function (idx) { 
                 this.counter--;
-                this.tableRows.splice(idx, 1);      
+                this.tableRows.splice(idx, 1);   
+                this.quantity--;
             },
             ProAdd(){
                 this.incre++;

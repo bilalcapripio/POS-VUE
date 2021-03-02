@@ -3,7 +3,7 @@
             <div>
                 <Navbar/>
                     <!-- /.content-wrapper -->
-                        <div class="content-wrapper p-2">
+                        <div class="content-wrapper p-2 mb-5">
                                         <div class="content-header">
                                             <!---Start Third card shop-->
                                             <h2 class="text-md ml-4"><span class="text-lg">Expence List</span>  View / <small class="text-gray text-sm"><span>Search Expence</span></small></h2>
@@ -29,7 +29,7 @@
                                                             </div> 
                                                             <div class="col-md-6"></div> 
                                                             <div class=" col-md-2 box-tools float-right mb-3">
-                                                                <a class="btn btn-block btn-info " href="#">
+                                                                <a class="btn btn-block btn-info " href="/Payments"> &nbsp;
                                                                 <i class="fa fa-plus "></i>  Create New </a>
                                                             </div>  
                                                         </div>
@@ -44,8 +44,7 @@
                                                             </label>
                                                             </div><div id="example2_processing" class="dataTables_processing panel panel-default" style="display: none;"></div></div><div class="pull-right margin-left-10 ">
                                                             <div class="dt-buttons btn-group mt-4 mr-2">              
-                                                            <button class="btn btn-default bg-red color-palette btn-flat hidden delete_btn pull-left" tabindex="0" aria-controls="example2" type="button">
-                                                            <span>Delete</span></button> <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
+                                                            <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
                                                             <span>CSV</span></button> 
                                                             <button class="btn btn-default buttons-collection buttons-colvis bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button" aria-haspopup="true"><span>Columns</span></button> 
                                                             </div></div></div>
@@ -56,72 +55,33 @@
                                                             <table id="example2" class="table table-bordered table-striped dataTable dtr-inline" width="100%" role="grid" aria-describedby="example2_info" style="width: 100%;">
                                                                 <thead class="bg-primary">
                                                                     <tr role="row">
-                                                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 359px;">Payment Type Name</th>
-                                                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 150px;" aria-label="Status: activate to sort column ascending">Status</th>
-                                                                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 203px;" aria-label="Action">Action</th>
+                                                                        <th  rowspan="1" colspan="1" style="width: 359px;">Payment Type Name</th>
+                                                                        <th  rowspan="1" colspan="1" style="width: 150px;">Status</th>
+                                                                        <th  rowspan="1" colspan="1" style="width: 203px;" aria-label="Action">Action</th>
                                                                     </tr>
                                                                 </thead>    
                                                                 <tbody>
-                                                                    <tr role="row" class="odd"><td tabindex="0">Finance</td><td><span onclick="update_status(4,0)" id="span_4" class="label label-success" style="cursor:pointer">Active </span></td><td><div class="btn-group" title="View Account">
-                                                                    <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                        Action <span class="caret"></span>
-                                                                    </a>
-                                                                    <ul role="menu" class="dropdown-menu dropdown-light"><li>
-                                                                            <a title="Editd Record ?" href="#">
-                                                                                <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                            </a>
-                                                                        </li><li>
-                                                                            <a style="cursor:pointer" title="Delete Record ?">
-                                                                                <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                            </a>
-                                                                        </li>   
-                                                                    </ul>
-                                                                    </div></td></tr><tr role="row" class="even"><td tabindex="0">Paytm</td><td><span class="label label-success" style="cursor:pointer">Active </span></td><td><div class="btn-group" title="View Account">
-                                                                        <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                            Action <span class="caret"></span>
-                                                                        </a>
-                                                                        <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                <a title="Editd Record ?" href="#">
-                                                                                    <i class="fa fa-fw fa-edit text-blue"></i>Edit
+                                                                    <tr role="row" v-for="index in paydata" v-bind:key="index.id">
+                                                                        <td>{{index.payment_type_name}}</td>
+                                                                            <td><span  class="bg-success rounded p-1" style="cursor:pointer">Active </span></td>
+                                                                            <td>
+                                                                            <div class="btn-group" title="View Account">
+                                                                                <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
+                                                                                    Action <span class="caret"></span>
                                                                                 </a>
-                                                                            </li><li>
-                                                                                <a style="cursor:pointer" title="Delete Record ?">
-                                                                                    <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                </a>
-                                                                            </li>
-                                                                            
-                                                                        </ul>
-                                                                    </div></td></tr><tr role="row" class="odd"><td tabindex="0">Card</td><td><span onclick="update_status(2,0)" id="span_2" class="label label-success" style="cursor:pointer">Active </span></td><td><div class="btn-group" title="View Account">
-                                                                        <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                            Action <span class="caret"></span>
-                                                                        </a>
-                                                                        <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                <a title="Editd Record ?" href="#">
-                                                                                    <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                </a>
-                                                                            </li><li>
-                                                                                <a style="cursor:pointer" title="Delete Record ?">
-                                                                                    <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                </a>
-                                                                            </li>
-                                                                            
-                                                                        </ul>
-                                                                    </div></td></tr><tr role="row" class="even"><td tabindex="0">Cash</td><td><span onclick="update_status(1,0)" id="span_1" class="label label-success" style="cursor:pointer">Active </span></td><td><div class="btn-group" title="View Account">
-                                                                        <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                            Action <span class="caret"></span>
-                                                                        </a>
-                                                                        <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                <a title="Editd Record ?" href="https://pos.creatantech.com/payment_types/update/1">
-                                                                                    <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                </a>
-                                                                            </li><li>
-                                                                                <a style="cursor:pointer" title="Delete Record ?" onclick="delete_payment_type(1)">
-                                                                                    <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                </a>
-                                                                            </li>
-                                                                            
-                                                                        </ul>
-                                                                    </div></td></tr>
+                                                                                <ul role="menu" class="dropdown-menu dropdown-light"><li>
+                                                                                        <a title="Editd Record ?" href="#">
+                                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
+                                                                                        </a>
+                                                                                    </li><li>
+                                                                                        <a style="cursor:pointer" title="Delete Record ?" @click="deleteData">
+                                                                                            <i class="fa fa-fw fa-trash text-red"></i>Delete
+                                                                                        </a>
+                                                                                    </li>   
+                                                                                </ul>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>                                                                   
                                                             </tbody>           
                                                             </table>
                                                             <div class="next d-flex justify-content-between align-items-center">
@@ -139,7 +99,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <!--End Product Table-->
                                         </div>
                                         </div>
@@ -155,6 +114,8 @@
 import Navbar from  '../../components/Navbar.vue'
 import Sidebar from '../../components/Sidebar.vue'
 import Footer from  '../../components/Footer.vue'
+import axios from 'axios'
+
 
 export default {
     name:'',
@@ -162,7 +123,38 @@ export default {
     Navbar,
     Sidebar,
     Footer
-}
+    },
+    data(){
+        return{
+            paydata:[],
+        }
+    },
+    methods:{
+        // delete row data
+        deleteData: function(id,index) {
+            this.paydata.splice(index,1)
+        axios.delete('http://192.168.100.9/Project_Laravel/public/api/payment_type/' + id)
+        .then((res)=>{
+                console.log(res);
+            })
+            // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },
+    },
+    mounted(){
+        axios.get("http://192.168.100.9/Project_Laravel/public/payment_type")
+                // return promise
+                .then((res)=>{
+                    this.custdata=res.data;
+                    console.log(res.data);
+                })
+                // catch error
+                .catch(error =>{
+                    console.log(error)
+                });
+    }
 
 }
 </script>

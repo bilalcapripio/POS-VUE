@@ -17,7 +17,7 @@
                                             <!--Start Calculation -->
                                             <div class="container border-top mx-auto">
                                                 <br>
-                                                <form v-on:submit="PostData" method="post" >
+                                                <form v-on:submit="PostData" method="post">
                                                     <div class="row">
                                                         <div class="col-md-4">
                                                             <!-- <form> -->
