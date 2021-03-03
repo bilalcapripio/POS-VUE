@@ -74,7 +74,7 @@
                                                                 <td>310,644.40</td>
                                                                 <td>2,625.00</td>
                                                                 <td>0.00</td>
-                                                                <td><span class="bg-success p-1 rounded" style="cursor:pointer">Active </span></td>
+                                                                <td v-for="(item, i ) in items" :key="i" :class="{ active: i === activeItem}"><span @click="selectItem(i)" class="bg-success p-1 rounded" style="cursor:pointer">Active </span></td>
                                                                 <td>
                                                                     <div class="btn-group" title="View Account">
                                                                         <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
@@ -152,7 +152,9 @@ export default {
     data(){
         return{
             custdata:[],
-            auto:0
+            auto:0,
+            activeItem: null
+
         }
     },
     methods:{
@@ -167,6 +169,9 @@ export default {
             .catch(error =>{
                 console.log(error)
             });
+        },
+        selectItem(i) {
+            this.activeItem = i;
         },
     },
     mounted(){

@@ -30,7 +30,7 @@
                                                                 </div> 
                                                                 <div class="col-md-6"></div> 
                                                                 <div class=" col-md-2 box-tools float-right mb-3">
-                                                                    <a class="btn btn-block btn-info " href="#">
+                                                                    <a class="btn btn-block btn-info " href="/Unit/add" >
                                                                     <i class="fa fa-plus "></i> New Units  </a>
                                                                 </div>  
                                                             </div>
@@ -71,9 +71,9 @@
                                                                 <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 253px;" aria-label="Action">Action</th></tr>
                                                             </thead>                 
                                                             <tbody>
-                                                                <tr role="row" >     
-                                                                    <td>Unit</td>
-                                                                    <td>Unit Description</td>
+                                                                <tr role="row" v-for="(data,index) in unitData" v-bind:key="data.id" >     
+                                                                    <td>{{data.unit_name}}</td>
+                                                                    <td>{{data.description}}</td>
                                                                         <td>
                                                                             <span class="label label-success bg-success p-2 rounded" style="cursor:pointer">Active </span>
                                                                         </td>
@@ -88,7 +88,7 @@
                                                                                     </a>
                                                                                 </li>
                                                                                 <li>
-                                                                                    <a style="cursor:pointer" title="Delete Record ?">
+                                                                                    <a style="cursor:pointer" title="Delete Record ?" href="#" @click="deleteData(data.id,index)">
                                                                                         <i class="fa fa-fw fa-trash text-red"></i>Delete
                                                                                     </a>
                                                                                 </li>
@@ -96,139 +96,9 @@
                                                                         </div>
                                                                     </td>
                                                                 </tr>
-                                                                <tr role="row" >     
-                                                                    <td>Packets</td>
-                                                                    <td>Packets Description</td>
-                                                                        <td>
-                                                                            <span class="label label-success bg-success p-2 rounded" style="cursor:pointer">Active </span>
-                                                                        </td>
-                                                                        <td>
-                                                                        <div class="btn-group" title="View Account">
-                                                                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                Action <span class="caret"></span>
-                                                                            </a>
-                                                                            <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                    <a title="Edit Record ?" href="#">
-                                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a style="cursor:pointer" title="Delete Record ?">
-                                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                    </a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr role="row" >     
-                                                                    <td>Grams</td>
-                                                                    <td>Grams Description</td>
-                                                                        <td>
-                                                                            <span class="label label-success bg-success p-2 rounded" style="cursor:pointer">Active </span>
-                                                                        </td>
-                                                                        <td>
-                                                                        <div class="btn-group" title="View Account">
-                                                                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                Action <span class="caret"></span>
-                                                                            </a>
-                                                                            <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                    <a title="Edit Record ?" href="#">
-                                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a style="cursor:pointer" title="Delete Record ?">
-                                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                    </a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr role="row" >     
-                                                                    <td>Pieces</td>
-                                                                    <td>Pieces Description</td>
-                                                                        <td>
-                                                                            <span class="label label-success bg-success p-2 rounded" style="cursor:pointer">Active </span>
-                                                                        </td>
-                                                                        <td>
-                                                                        <div class="btn-group" title="View Account">
-                                                                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                Action <span class="caret"></span>
-                                                                            </a>
-                                                                            <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                    <a title="Edit Record ?" href="#">
-                                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a style="cursor:pointer" title="Delete Record ?">
-                                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                    </a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr role="row" >     
-                                                                    <td>Drums</td>
-                                                                    <td>Drums Description</td>
-                                                                        <td>
-                                                                            <span class="label label-success bg-success p-2 rounded" style="cursor:pointer">Active </span>
-                                                                        </td>
-                                                                        <td>
-                                                                        <div class="btn-group" title="View Account">
-                                                                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                Action <span class="caret"></span>
-                                                                            </a>
-                                                                            <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                    <a title="Edit Record ?" href="#">
-                                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a style="cursor:pointer" title="Delete Record ?">
-                                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                    </a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr role="row" >     
-                                                                    <td>Box</td>
-                                                                    <td>Box Description</td>
-                                                                        <td>
-                                                                            <span class="label label-success bg-success p-2 rounded" style="cursor:pointer">Active </span>
-                                                                        </td>
-                                                                        <td>
-                                                                        <div class="btn-group" title="View Account">
-                                                                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                Action <span class="caret"></span>
-                                                                            </a>
-                                                                            <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                    <a title="Edit Record ?" href="#">
-                                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                    </a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <a style="cursor:pointer" title="Delete Record ?">
-                                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                    </a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>       
+      
                                                             </tbody>
-                                                            
-                                                            
-
-
-
-
-                                                            </table>
+                                                        </table>
                                                         <!-- End First Table List -->
 
                                                         <div class="next d-flex justify-content-between align-items-center">
@@ -260,14 +130,48 @@
 import Navbar from  '../../components/Navbar.vue'
 import Sidebar from '../../components/Sidebar.vue'
 import Footer from  '../../components/Footer.vue'
+import axios from 'axios'
 
 export default {
     name:'',
+    data(){
+        return{
+            unitData:[]
+        }
+    },
     components: {
-    Navbar,
-    Sidebar,
-    Footer
-}
+        Navbar,
+        Sidebar,
+        Footer
+    },
+    mounted(){
+        this.getUnitData()
+    },
+    methods:{
+        getUnitData: function(){
+            axios.get("http://192.168.100.9/Project_Laravel/public/api/unit")
+                // return promise
+            .then((res)=>{
+                this.unitData=res.data;
+                    console.log(res.data);
+            })
+                // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },
+        deleteData: function(id,index) {
+            this.unitData.splice(index,1)
+            axios.delete('http://192.168.100.9/Project_Laravel/public/api/unit/' + id)
+            .then((res)=>{
+                console.log(res);
+            })
+            // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },
+    },
 
 }
 </script>

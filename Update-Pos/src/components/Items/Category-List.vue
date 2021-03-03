@@ -37,7 +37,7 @@
                                                                     <div class="row">
                                                                         <div class="col-sm-12"><div class="pull-left">
                                                                         <div class="dataTables_length" id="example2_length">
-                                                                        <label>Show <select aria-controls="example2" class="form-control input-sm">
+                                                                        <label>Show <select name="example2_length" aria-controls="example2" class="form-control input-sm">
                                                                         <option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label></div></div><div class="pull-right"><div id="example2_filter" class="dataTables_filter">
                                                                         <label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example2"></label></div><div id="example2_processing" class="dataTables_processing panel panel-default" style="display: none;"><div class="text-primary bg-primary" style="position: relative;z-index:100;overflow: visible;">Processing...</div></div></div><div class="pull-right margin-left-10 ">
                                                                         <div class="dt-buttons btn-group mt-4 mr-2">              
@@ -52,18 +52,18 @@
                                                                         <table id="example2" class="table table-bordered table-striped dataTable no-footer dtr-inline" width="100%" role="grid" aria-describedby="example2_info" style="width: 100%;">
                                                                             <thead class="bg-primary ">
                                                                                 <tr role="row">
-                                                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 214px;" aria-label="Category Code: activate to sort column ascending">Category Code</th>
-                                                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 224px;" aria-label="Category Name: activate to sort column ascending">Category Name</th>
-                                                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 307px;" aria-label="Description: activate to sort column ascending">Description</th>
-                                                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 116px;" aria-label="Status: activate to sort column ascending">Status</th>
-                                                                                <th class="sorting" rowspan="1" colspan="1" style="width: 164px;" aria-label="Action">Action</th>
+                                                                                <th class="sorting" rowspan="1" colspan="1">Category Code</th>
+                                                                                <th class="sorting" rowspan="1" colspan="1">Category Name</th>
+                                                                                <th class="sorting" rowspan="1" colspan="1">Description</th>
+                                                                                <th class="sorting" rowspan="1" colspan="1">Status</th>
+                                                                                <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 164px;" aria-label="Action">Action</th>
                                                                                 </tr>
                                                                             </thead>  
                                                                             <tbody>
-                                                                                <tr role="row">
-                                                                                        <td>CT0021</td>
-                                                                                        <td>Accessories</td>
-                                                                                        <td>Accessories Description</td>
+                                                                                <tr role="row" class="odd" v-for="(data,index) in itemCategoryData" v-bind:key="data.id">
+                                                                                        <td>{{data.category_code}}</td>
+                                                                                        <td>{{data.category_name}}</td>
+                                                                                        <td>{{data.description}}</td>
                                                                                         <td><span onclick="update_status(21,0)" id="span_21" class="label label-success" style="cursor:pointer">Active </span></td>
                                                                                         <td>
                                                                                             <div class="btn-group" title="View Account">
@@ -72,258 +72,24 @@
                                                                                                 </a>
                                                                                                 <ul role="menu" class="dropdown-menu dropdown-light pull-right">
                                                                                                     <li>
-                                                                                                        <a title="Edit Record ?" href="#">
+                                                                                                        <a title="Edit Record ?" href="update/21">
                                                                                                             <i class="fa fa-fw fa-edit text-blue"></i>Edit
                                                                                                         </a>
                                                                                                     </li>
                                                                                                                 
                                                                                                     <li>
-                                                                                                        <a>
+                                                                                                        <a href="#" @click="deleteData(data.id,index)">
                                                                                                             <i class="fa fa-fw fa-trash text-red"></i>Delete
                                                                                                         </a>
                                                                                                     </li>                                       
                                                                                                 </ul>
                                                                                             </div>
                                                                                         </td>
-                                                                                </tr>          
-                                                                                  <tr role="row">
-                                                                                        <td>CT0021</td>
-                                                                                        <td>Accessories</td>
-                                                                                        <td>Accessories Description</td>
-                                                                                        <td><span onclick="update_status(21,0)" id="span_21" class="label label-success" style="cursor:pointer">Active </span></td>
-                                                                                        <td>
-                                                                                            <div class="btn-group" title="View Account">
-                                                                                                <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                                    Action <span class="caret"></span>
-                                                                                                </a>
-                                                                                                <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                                                    <li>
-                                                                                                        <a title="Edit Record ?" href="#">
-                                                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                        </a>
-                                                                                                    </li>
-                                                                                                                
-                                                                                                    <li>
-                                                                                                        <a>
-                                                                                                            <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                        </a>
-                                                                                                    </li>                                       
-                                                                                                </ul>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                </tr>  
-                                                                                  <tr role="row">
-                                                                                        <td>CT0021</td>
-                                                                                        <td>Accessories</td>
-                                                                                        <td>Accessories Description</td>
-                                                                                        <td><span onclick="update_status(21,0)" id="span_21" class="label label-success" style="cursor:pointer">Active </span></td>
-                                                                                        <td>
-                                                                                            <div class="btn-group" title="View Account">
-                                                                                                <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                                    Action <span class="caret"></span>
-                                                                                                </a>
-                                                                                                <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                                                    <li>
-                                                                                                        <a title="Edit Record ?" href="#">
-                                                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                        </a>
-                                                                                                    </li>
-                                                                                                                
-                                                                                                    <li>
-                                                                                                        <a>
-                                                                                                            <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                        </a>
-                                                                                                    </li>                                       
-                                                                                                </ul>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                </tr>  
-                                                                                  <tr role="row">
-                                                                                        <td>CT0021</td>
-                                                                                        <td>Accessories</td>
-                                                                                        <td>Accessories Description</td>
-                                                                                        <td><span onclick="update_status(21,0)" id="span_21" class="label label-success" style="cursor:pointer">Active </span></td>
-                                                                                        <td>
-                                                                                            <div class="btn-group" title="View Account">
-                                                                                                <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                                    Action <span class="caret"></span>
-                                                                                                </a>
-                                                                                                <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                                                    <li>
-                                                                                                        <a title="Edit Record ?" href="#">
-                                                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                        </a>
-                                                                                                    </li>
-                                                                                                                
-                                                                                                    <li>
-                                                                                                        <a>
-                                                                                                            <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                        </a>
-                                                                                                    </li>                                       
-                                                                                                </ul>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                </tr>  
-                                                                                  <tr role="row">
-                                                                                        <td>CT0021</td>
-                                                                                        <td>Accessories</td>
-                                                                                        <td>Accessories Description</td>
-                                                                                        <td><span onclick="update_status(21,0)" id="span_21" class="label label-success" style="cursor:pointer">Active </span></td>
-                                                                                        <td>
-                                                                                            <div class="btn-group" title="View Account">
-                                                                                                <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                                    Action <span class="caret"></span>
-                                                                                                </a>
-                                                                                                <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                                                    <li>
-                                                                                                        <a title="Edit Record ?" href="#">
-                                                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                        </a>
-                                                                                                    </li>
-                                                                                                                
-                                                                                                    <li>
-                                                                                                        <a>
-                                                                                                            <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                        </a>
-                                                                                                    </li>                                       
-                                                                                                </ul>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                </tr>  
-                                                                                  <tr role="row">
-                                                                                        <td>CT0021</td>
-                                                                                        <td>Accessories</td>
-                                                                                        <td>Accessories Description</td>
-                                                                                        <td><span onclick="update_status(21,0)" id="span_21" class="label label-success" style="cursor:pointer">Active </span></td>
-                                                                                        <td>
-                                                                                            <div class="btn-group" title="View Account">
-                                                                                                <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                                    Action <span class="caret"></span>
-                                                                                                </a>
-                                                                                                <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                                                    <li>
-                                                                                                        <a title="Edit Record ?" href="#">
-                                                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                        </a>
-                                                                                                    </li>
-                                                                                                                
-                                                                                                    <li>
-                                                                                                        <a>
-                                                                                                            <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                        </a>
-                                                                                                    </li>                                       
-                                                                                                </ul>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                </tr>  
-                                                                                  <tr role="row">
-                                                                                        <td>CT0021</td>
-                                                                                        <td>Accessories</td>
-                                                                                        <td>Accessories Description</td>
-                                                                                        <td><span onclick="update_status(21,0)" id="span_21" class="label label-success" style="cursor:pointer">Active </span></td>
-                                                                                        <td>
-                                                                                            <div class="btn-group" title="View Account">
-                                                                                                <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                                    Action <span class="caret"></span>
-                                                                                                </a>
-                                                                                                <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                                                    <li>
-                                                                                                        <a title="Edit Record ?" href="#">
-                                                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                        </a>
-                                                                                                    </li>
-                                                                                                                
-                                                                                                    <li>
-                                                                                                        <a>
-                                                                                                            <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                        </a>
-                                                                                                    </li>                                       
-                                                                                                </ul>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                </tr>  
-                                                                                  <tr role="row">
-                                                                                        <td>CT0021</td>
-                                                                                        <td>Accessories</td>
-                                                                                        <td>Accessories Description</td>
-                                                                                        <td><span onclick="update_status(21,0)" id="span_21" class="label label-success" style="cursor:pointer">Active </span></td>
-                                                                                        <td>
-                                                                                            <div class="btn-group" title="View Account">
-                                                                                                <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                                    Action <span class="caret"></span>
-                                                                                                </a>
-                                                                                                <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                                                    <li>
-                                                                                                        <a title="Edit Record ?" href="#">
-                                                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                        </a>
-                                                                                                    </li>
-                                                                                                                
-                                                                                                    <li>
-                                                                                                        <a>
-                                                                                                            <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                        </a>
-                                                                                                    </li>                                       
-                                                                                                </ul>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                </tr>  
-                                                                                  <tr role="row">
-                                                                                        <td>CT0021</td>
-                                                                                        <td>Accessories</td>
-                                                                                        <td>Accessories Description</td>
-                                                                                        <td><span onclick="update_status(21,0)" id="span_21" class="label label-success" style="cursor:pointer">Active </span></td>
-                                                                                        <td>
-                                                                                            <div class="btn-group" title="View Account">
-                                                                                                <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                                    Action <span class="caret"></span>
-                                                                                                </a>
-                                                                                                <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                                                    <li>
-                                                                                                        <a title="Edit Record ?" href="#">
-                                                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                        </a>
-                                                                                                    </li>
-                                                                                                                
-                                                                                                    <li>
-                                                                                                        <a>
-                                                                                                            <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                        </a>
-                                                                                                    </li>                                       
-                                                                                                </ul>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                </tr>  
-                                                                                  <tr role="row">
-                                                                                        <td>CT0021</td>
-                                                                                        <td>Accessories</td>
-                                                                                        <td>Accessories Description</td>
-                                                                                        <td><span onclick="update_status(21,0)" id="span_21" class="label label-success" style="cursor:pointer">Active </span></td>
-                                                                                        <td>
-                                                                                            <div class="btn-group" title="View Account">
-                                                                                                <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                                    Action <span class="caret"></span>
-                                                                                                </a>
-                                                                                                <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                                                    <li>
-                                                                                                        <a title="Edit Record ?" href="#">
-                                                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                        </a>
-                                                                                                    </li>
-                                                                                                                
-                                                                                                    <li>
-                                                                                                        <a>
-                                                                                                            <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                        </a>
-                                                                                                    </li>                                       
-                                                                                                </ul>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                </tr>                                                
+                                                                                </tr>
                                                                             </tbody>    
                                                                         </table>
                                                                         <div class="next d-flex justify-content-between align-items-center">
-                                                                            <div role="status" aria-live="polite">Showing 1 to 10 of 22 entries</div>
+                                                                            <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to 10 of 22 entries</div><div class="dataTables_paginate paging_simple_numbers" id="example2_paginate"></div>
                                                                             <nav aria-label="Page navigation example">
                                                                                 <ul class="pagination">
                                                                                 <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -353,14 +119,48 @@
 import Navbar from  '../../components/Navbar.vue'
 import Sidebar from '../../components/Sidebar.vue'
 import Footer from  '../../components/Footer.vue'
+import axios from 'axios'
 
 export default {
     name:'',
+    data(){
+        return{
+            itemCategoryData:[]
+        }
+    },
     components: {
-    Navbar,
-    Sidebar,
-    Footer
-}
+        Navbar,
+        Sidebar,
+        Footer
+    },
+    mounted(){
+        this.getitemCategoryData()
+    },
+    methods:{
+        getitemCategoryData: function(){
+            axios.get("http://192.168.100.9/Project_Laravel/public/api/item_category")
+                // return promise
+            .then((res)=>{
+                this.itemCategoryData=res.data;
+                    console.log(res.data);
+            })
+                // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },
+        deleteData: function(id,index) {
+            this.itemCategoryData.splice(index,1)
+            axios.delete('http://192.168.100.9/Project_Laravel/public/api/item_category/' + id)
+            .then((res)=>{
+                console.log(res);
+            })
+            // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },
+    },  
 
 }
 </script>

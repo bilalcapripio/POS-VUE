@@ -4,9 +4,9 @@
                 <Navbar/>
                     <!-- /.content-wrapper -->
                         <div class="content-wrapper p-2">
-                                <div class="content-header ">
+                                <div class="content-header mb-5">
                                             <!---Start Third card shop-->
-                                            <h2 class="text-md ml-4"><span class="text-lg">Expense Category</span>  Add / <small class="text-gray text-sm"><span>Update Expense Category</span></small></h2>
+                                            <h2 class="text-md ml-4"><span class="text-lg">Currency </span>  <small class="text-gray text-sm"><span> Add/Update Currency</span></small></h2>
                                             <!-- alert start -->
                                             <div class="content-header">
                                                 <div class="container-fluid">
@@ -29,26 +29,34 @@
                                                                 <form @submit.prevent="postData" method="post">
                                                                     <div class="box-body">
                                                                         <div class="form-group">
-                                                                            <label for="category" class="col-sm-2 control-label">Category Name<label class="text-danger">*</label></label>
-                                                                    <div class="col-sm-4">
-                                                                        <input type="text" class="form-control input-sm" id="category" name="category" placeholder="Category Name" v-model="posts.category_name">
-                                                                                <span id="category_msg" style="display:none" class="text-danger"></span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                            <label for="description" class="col-sm-2 control-label">Description</label>
+                                                                            <label for="category" class="col-sm-2 control-label">Currency Name<label class="text-danger">*</label></label>
                                                                             <div class="col-sm-4">
-                                                                                <textarea type="text" class="form-control" id="description" name="description" placeholder="Description" v-model="posts.desc"></textarea>
+                                                                                <input type="text" class="form-control input-sm" id="category" name="category" placeholder="Category Name" v-model="posts.currency_name">
+                                                                                <span id="category_msg" style="display:none" class="text-danger"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    <div class="form-group">
+                                                                            <label for="description" class="col-sm-2 control-label">Currency Code</label>
+                                                                            <div class="col-sm-4">
+                                                                                <input type="text" class="form-control input-sm" id="category" name="category" placeholder="Category Name" v-model="posts.currency_code">
                                                                                 <span id="description_msg" style="display:none" class="text-danger"></span>
                                                                             </div>
-                                                                            </div>   
+                                                                    </div>   
+                                                                    <div class="form-group">
+                                                                        <label for="description" class="col-sm-2 control-label">Currency Symbol</label>
+                                                                        <div class="col-sm-4">
+                                                                            <input type="text" class="form-control input-sm" id="category" name="category" placeholder="Category Name" v-model="posts.currency_symbol">
+                                                                            <span id="description_msg" style="display:none" class="text-danger"></span>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="">
-                                                                        <button class="btn btn-success">Save</button>
-                                                                        <button class="btn btn-warning">Close</button>
-                                                                    </div>
+                                                                </div>
+                                                                <div class="">
+                                                                    <button class="btn btn-success">Save</button>
+                                                                    &nbsp;
+                                                                    <button class="btn btn-warning">Close</button>
+                                                                </div>
                                                                 </form>
-                                                        </div>
+                                                            </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,8 +87,9 @@ export default {
     data(){
         return{
             posts:{
-                category_name:'',
-                desc:''
+                currency_name:'',
+                currency_code:'',
+                currency_symbol:''
             }
         }
     },
@@ -88,15 +97,17 @@ export default {
             postData(e){
                 confirm('Do You Wants to Save Record ?')
                 const formdata = new FormData();
-                formdata.append('category_name',this.posts.category_name),
-                formdata.append('description',this.posts.desc),
-                // this.formdata = { headers: { 'Content-Type': 'multipart/formdata' } }
-                axios.post("http://192.168.100.9/Project_Laravel/public/api/expence_category",formdata)
-                // return promise
+                formdata.append('currency_name',this.posts.currency_name),
+                formdata.append('currency_code',this.posts.currency_code),
+                formdata.append('currency_symbol',this.posts.currency_symbol),
+
+                axios.post("http://192.168.100.9/Project_Laravel/public/api/currency",formdata)
                 .then((res)=>{
                     console.log(res);
-                    this.posts.category_name='',
-                    this.posts.desc=''
+                    this.posts.currency_name='',
+                    this.posts.currency_code='',
+                    this.posts.currency_symbol=''
+
                 })
                 // catch error
                 .catch(error =>{

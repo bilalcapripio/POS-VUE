@@ -16,7 +16,7 @@
                         <a href="#" class="nav-link">POS</a>
                     </li> -->
                     <li class="nav-item pl-3">
-                        <a class="nav-link" data-toggle="dropdown" href="#">
+                        <a class="nav-link" data-toggle="dropdown" href="/Sale">
                             <i class="fa fa-list text-yellow"></i>
                             Sales List
                         </a>
@@ -38,11 +38,16 @@
                 <ul class="navbar-nav ml-auto">         
                     <!--Start  Modal -->
                         <!-- Button trigger modal -->
-                        <a class="btn btn-primary text-light" data-toggle="modal" data-target="#exampleModal">
+                        <!-- <a class="btn btn-primary text-light" data-toggle="modal" data-target="#exampleModal">
                             <i class="fa fa-laptop"></i>
                             Hold List
                             <span class="badge badge-danger">0</span>
-                        </a>
+                        </a> -->
+                        <a class="btn btn-primary text-light" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa fa-laptop"></i>
+                            <!-- Home -->
+                            <!-- <span class="badge badge-danger">0</span>  -->
+                        </a> 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -57,10 +62,10 @@
                                     <table class="table table-bordered">
                                         <thead class="thead bg-primary">
                                             <tr>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Ref:ID</th>
-                                                <th scope="col">Action</th>
+                                                <th rowspan="1" colspan="1" >ID</th>
+                                                <th rowspan="1" colspan="1" >Date</th>
+                                                <th rowspan="1" colspan="1" >Ref:ID</th>
+                                                <th rowspan="1" colspan="1" >Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -170,7 +175,7 @@
                                                         </thead>
                                                         <tbody style="font-size: 16px;font-weight: bold;overflow: scroll;">
                                                             <!-- body code -->
-                                                            <tr v-for="(content , index) in tableRows" v-bind:key="content.id">
+                                                            <tr v-for="(content , index) in itemDataArr" v-bind:key="content.id">
                                                                 <td>
                                                                     <a title="" class="pointer text-bold">Rado Watch </a> 
                                                                         <span  data-toggle="modal" data-target="#exampleModalLong"> <i class="fa fa-edit"></i></span>
@@ -308,9 +313,9 @@
                                                 <span class="text-primary text-bold">{{quantity}}</span>
                                             </div>
                                             <div class="col-md-4 text-right">
-                                                <b>Total Amount:</b>
+                                                <b>Total Amount</b>
                                                 <br>
-                                                <span class="text-primary text-bold">0</span>
+                                                <span class="text-primary text-bold">{{totalAmount()}}</span>
                                             </div>    
                                             <!-- <div class="col-md-3 text-right">
                                                 <b>Total Discount:</b>
@@ -320,22 +325,340 @@
                                             <div class="col-md-4 text-right">
                                                 <b>Grand Total:</b>
                                                 <br>
-                                                <span class="text-primary text-bold">0.00</span>
+                                                <span class="text-primary text-bold">{{totalAmount()}}</span>
                                             </div>
                                         </div>
                                         <div class="row">
+
+                                            <!-- Start First Modal Hold -->
                                             <div class="col-md-3" style="cursor: pointer;">
-                                                <button class="btn bg-maroon btn-block btn-flat btn-lg"> <i class="fa fa-hand-paper-o"></i> Hold</button>
+                                                <button class="btn btn-danger btn-block btn-flat btn-lg"  data-toggle="modal" data-target=".bds-example-modal-lg"> 
+                                                    <i class="fa fa-hand-paper-o"></i> Hold
+                                                </button>
+                                                <!-- Modal -->
+                                                <div class="modal fade bds-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                                <!-- <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                                </button> -->
+                                                            <div class="modal-body">
+                                                                <div class="row px-2">
+                                                                    <div class="col-md-12 col-12">
+                                                                        <div class="icon text-center ">
+                                                                            <i class="fa fa-warning text-warning fa-5x py-2"></i>
+                                                                            <p class="text-bold py-4" style="font-size:1.5rem;">Hold Invoice ? Same Reference will  <br>
+                                                                                replace the old list if exist!!</p>   
+                                                                        </div>   
+                                                                        <form class="p-2">
+                                                                            <div class="form-group">
+                                                                                <input type="text" class="form-control" placeholder="Please Enter Reference Number!">
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                    
+                                                                </div>        
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                                <button type="button" class="btn btn-danger"  data-dismiss="modal"> OK</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            <!-- End First Modal Hold -->
+
+                                            <!-- Start Second Modal Multiply -->
                                             <div class="col-md-3" style="cursor: pointer;">
-                                                <button class="btn btn-primary btn-block btn-flat btn-lg"> <i class="fa fa-credit-card"></i> Multiple</button>
+                                                <button class="btn btn-primary btn-block btn-flat btn-lg"  data-toggle="modal" data-target=".bdd-example-modal-lg"> 
+                                                    <i class="fa fa-credit-card"></i> Multiple
+                                                </button>
+                                                <!-- Modal -->
+                                                <div class="modal fade bdd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header" style="background-image: -webkit-gradient(linear, left top, right top, from(rgba(32 185 174)), to(rgba(0 111 214)));color: rgb(255 255 255);">
+                                                            <h5 class="modal-title lead">Payments </h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row px-2">
+                                                                <div class="col-md-7 col-12">
+                                                                    <form class="bg-gray p-2">
+                                                                            <div class="form-group">
+                                                                                <label> Amount</label>
+                                                                                <input type="number" class="form-control">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <select class="form-control">
+                                                                                        <option value="Cash">Cash</option>
+                                                                                        <option value="Card">Card</option>
+                                                                                        <option value="Paytm">Paytm</option>
+                                                                                        <option value="Finance">Finance</option>    
+                                                                                </select>
+                                                                            </div>                                                                    
+                                                                            <div class="form-group">
+                                                                                <label>Payment Note</label>
+                                                                                <textarea class="form-control" rows="12"></textarea>
+                                                                            </div>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="col-md-5 px-3 pl-5">
+                                                                    <div class="col-md-12">
+                                                                        <div class="">
+                                                                            <div class="row">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Total Items:</span>
+                                                                                    <span class="col-md-6 text-bold">{{quantity}}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Total:</span>
+                                                                                    <span class="col-md-6 text-bold">{{totalAmount()}}</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Discount(-):</span>
+                                                                                    <span class="col-md-6 text-bold">0.00</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-danger text-center p-3 rounded">
+                                                                                    <span class="col-md-6 text-bold">Total Payable:</span>
+                                                                                    <span class="col-md-6 text-bold">{{totalAmount()}}</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Total Paying:</span>
+                                                                                    <span class="col-md-6 text-bold">0.00</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Balance :</span>
+                                                                                    <span class="col-md-6 text-bold">{{totalAmount()}}</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-warning text-center p-3 rounded">
+                                                                                    <span class="col-md-6 text-bold">Changer Return:</span>
+                                                                                    <span class="col-md-6 text-bold">0.00</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>        
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-danger" @click="Savesure">  <i class="fa fa-save"></i> Save</button>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            <!-- End Second Modal Multiply -->
+
+                                            <!-- Start Third Modal Cash -->
                                             <div class="col-md-3" style="cursor: pointer;">
-                                                <button class="btn btn-success btn-block btn-flat btn-lg"> <i class="fa fa-money"></i> Cash</button>
+                                                <button class="btn btn-success btn-block btn-flat btn-lg"  data-toggle="modal" data-target=".bd-example-modal-lg"> 
+                                                    <i class="fa fa-money"></i> Cash
+                                                </button>
+                                                <!-- Modal -->
+                                                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header" style="background-image: -webkit-gradient(linear, left top, right top, from(rgba(32 185 174)), to(rgba(0 111 214)));color: rgb(255 255 255);">
+                                                            <h5 class="modal-title lead">Payments </h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row px-2">
+                                                                <div class="col-md-7 col-12">
+                                                                    <form class="bg-gray p-2">
+                                                                        <div class="form-group">
+                                                                            <label> Amount</label>
+                                                                            <input type="number" class="form-control">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label>Payment Note</label>
+                                                                            <textarea class="form-control" rows="12"></textarea>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="col-md-5 px-3 pl-5">
+                                                                    <div class="col-md-12">
+                                                                        <div class="">
+                                                                            <div class="row">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Total Items:</span>
+                                                                                    <span class="col-md-6 text-bold">{{quantity}}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Total:</span>
+                                                                                    <span class="col-md-6 text-bold">{{totalAmount()}}</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Discount(-):</span>
+                                                                                    <span class="col-md-6 text-bold">0.00</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-danger text-center p-3 rounded">
+                                                                                    <span class="col-md-6 text-bold">Total Payable:</span>
+                                                                                    <span class="col-md-6 text-bold">{{totalAmount()}}</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Total Paying:</span>
+                                                                                    <span class="col-md-6 text-bold">0.00</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Balance :</span>
+                                                                                    <span class="col-md-6 text-bold">{{totalAmount()}}</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-warning text-center p-3 rounded">
+                                                                                    <span class="col-md-6 text-bold">Changer Return:</span>
+                                                                                    <span class="col-md-6 text-bold">0.00</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>        
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-danger" @click="Savesure">  <i class="fa fa-save"></i> Save</button>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            <!-- End Third Modal Cash -->
+
+                                            <!-- Start Fourth Modal PayAll -->
                                             <div class="col-md-3" style="cursor: pointer;">
-                                                <button class="btn bg-purple btn-block btn-flat btn-lg"> <i class="fa fa-money"></i> PayAll</button>
+                                                <button class="btn btn-info btn-block btn-flat btn-lg"  @click="printDiv('printableArea')"> 
+                                                    <i class="fa fa-money"></i> PayAll
+                                                </button>
+                                                <!-- Modal -->
+                                                <!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header" style="background-image: -webkit-gradient(linear, left top, right top, from(rgba(32 185 174)), to(rgba(0 111 214)));color: rgb(255 255 255);">
+                                                            <h5 class="modal-title lead">Payments </h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row px-2">
+                                                                <div class="col-md-7 col-12">
+                                                                    <form class="bg-gray p-2">
+                                                                        <div class="form-group">
+                                                                            <label> Amount</label>
+                                                                            <input type="number" class="form-control">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label>Payment Note</label>
+                                                                            <textarea class="form-control" rows="12"></textarea>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="col-md-5 px-3 pl-5">
+                                                                    <div class="col-md-12">
+                                                                        <div class="">
+                                                                            <div class="row">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Total Items:</span>
+                                                                                    <span class="col-md-6 text-bold">{{quantity}}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Total:</span>
+                                                                                    <span class="col-md-6 text-bold">{{totalAmount()}}</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Discount(-):</span>
+                                                                                    <span class="col-md-6 text-bold">0.00</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-danger text-center p-3 rounded">
+                                                                                    <span class="col-md-6 text-bold">Total Payable:</span>
+                                                                                    <span class="col-md-6 text-bold">{{totalAmount()}}</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Total Paying:</span>
+                                                                                    <span class="col-md-6 text-bold">0.00</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-primary text-center p-2 rounded">
+                                                                                    <span class="col-md-6 text-bold">Balance :</span>
+                                                                                    <span class="col-md-6 text-bold">{{totalAmount()}}</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row border-top">
+                                                                                <div class="col-md-12 bg-warning text-center p-3 rounded">
+                                                                                    <span class="col-md-6 text-bold">Changer Return:</span>
+                                                                                    <span class="col-md-6 text-bold">0.00</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>        
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-danger" @click="Savesure">  <i class="fa fa-save"></i> Save</button>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
                                             </div>
+                                            <!-- End Fourth Modal PayAll -->
+
                                         </div>
                                     </div>
                                 </div>
@@ -376,336 +699,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div style="overflow-y: scroll;min-height: 100px;height: 600px; overflow-x:hidden">
+                                    <div style="overflow-y: scroll;min-height: 100px;height: 600px; overflow-x:hidden" class="over">
                                         <div class="row mt-2">
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
+                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()' id="printableArea" v-for="data in itemData" v-bind:key="data.id">
                                                 <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
+                                                    <span class="badge badge-danger push-right">Qty:{{data.available_quantity}}</span>
                                                     <div class="box-body box-profile">
                                                         <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
+                                                            <img :src="'http://192.168.100.9/Project_Laravel/public/images/'+data.image" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
                                                         </center>
                                                         <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
+                                                        <label class="text-center" style="cursor: pointer; color:black;">{{data.item_name}}
                                                         <br>    
-                                                            <span>$ 20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Armani Jacket
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border rounded">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;" @click='addTableRow()'>
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                                
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;">
-                                                <div class="box box-default bg-success border rounded" >
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
-                                                        </label>
-                                                        </center>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-6" style="cursor: pointer;">
-                                                <div class="box box-default bg-success border" style="border-radius:5px">
-                                                    <span class="badge badge-danger push-right">Qty: 54.00</span>
-                                                    <div class="box-body box-profile">
-                                                        <center class="pt-1">
-                                                            <img src="@/assets/Img/logo2.png" alt="image Not Found" style="height:60px" class=" img-responsive border border-gray">
-                                                        </center>
-                                                        <center class="py-3">
-                                                        <label class="text-center" style="cursor: pointer; color:black;">Rado Watch
-                                                        <br>    
-                                                            <span>$20,00</span>
+                                                            <span>{{data.sales_price}}</span>
                                                         </label>
                                                         </center>
                                                     </div>
@@ -724,32 +730,69 @@
 </template>
 
 <script>
+ 
+import axios from 'axios'
+
 export default {
     data(){
         return{
-            tableRows:[],
+            itemData:[],
+            itemDataArr:[],
             counter:0,
             incre:0,
             quantity:0,
-            Price:20.00
+            Price:2000,
+
         }
     },
-    
+    mounted(){
+        this.getitemsData()
+    },
     methods: {
+            getitemsData: function(){
+                axios.get("http://192.168.100.9/Project_Laravel/public/api/item")
+                // return promise
+                .then((res)=>{
+                    this.itemData=res.data;
+                        console.log(res.data);
+                })
+                // catch error
+                .catch(error =>{
+                    console.log(error)
+                });
+            },
             addTableRow: function () { 
             this.counter++;
-            this.tableRows.push("Table Row "+this.counter);
+            this.itemDataArr.push("Table Row "+ this.counter);
             this.quantity++;
             },
             // alert('Vue js')
             deleteTableRow: function (idx) { 
                 this.counter--;
-                this.tableRows.splice(idx, 1);   
+                this.itemDataArr.splice(idx, 1);   
                 this.quantity--;
             },
             ProAdd(){
                 this.incre++;
             },
+            totalAmount(){
+                var sum = 0;
+                this.itemDataArr.forEach(value => {
+                sum += this.Price;
+                console.log(value);
+                })
+                return sum;
+            },
+            Savesure(){
+                confirm('Are you sure to save this payment');
+            },
+            printDiv() {
+                    var printContents = document.getElementById('printableArea').innerHTML;
+                    var originalContents = document.body.innerHTML;
+                    document.body.innerHTML = printContents;
+                    window.print();
+                    document.body.innerHTML = originalContents;
+            }
 
     }
     

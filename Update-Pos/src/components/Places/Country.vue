@@ -26,12 +26,12 @@
                                                                 <div class="card">
                                                                     <h5 class="card-header display-5">Please Enter Valid Data</h5>
                                                                     <div class="card-body">
-                                                                    <form v-on:submit="PostCount" method="post">
+                                                                    <form v-on:submit="countryPost" method="post">
                                                                         <div class="box-body">
                                                                             <div class="form-group">
                                                                                     <label  class="col-sm-2 control-label">Country Name<label class="text-danger">*</label></label>
                                                                                 <div class="col-sm-4">
-                                                                                    <input type="text" class="form-control input-sm"  name="category" v-model="posts.category" required>
+                                                                                    <input type="text" class="form-control input-sm"  name="country_name" v-model="posts.country_name" required>
                                                                                 </div>
                                                                             </div> 
                                                                         </div>
@@ -70,18 +70,19 @@ export default {
 data(){
         return{
             posts:{
-                category :""
+                country_name :""
             },
         }
     },
     methods:{
-        PostCount(e){
+        countryPost(e){
             const formdata = new FormData();
-            formdata.append('category',this.posts.category)
-            axios.post("http://192.168.100.9/Project_Laravel/public/api/state",formdata)
+            formdata.append('country_name',this.posts.country_name)
+            axios.post("http://192.168.100.9/Project_Laravel/public/api/country",formdata)
             // return promise
             .then((res)=>{
                 console.log(res);
+                this.posts.country_name = '';
             })
             // catch error
             .catch(error =>{
@@ -91,6 +92,7 @@ data(){
             console.table(this.posts);
             // submit data without page reload 
             e.preventDefault();
+            
         }
 
     }

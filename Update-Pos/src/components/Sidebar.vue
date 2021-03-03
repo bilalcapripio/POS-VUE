@@ -34,14 +34,14 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="pos" class="nav-link">
+                          <a href="/pos" class="nav-link">
                             <i class="fa fa-calculator  nav-icon"></i>
                             <p>POS</p>
                           </a>
                         </li>
                         <li class="nav-item">
                           <!-- <router-link to="/" class="nav-link"> -->
-                          <a href="Add_Sale" class="nav-link">
+                          <a href="/Add_Sale" class="nav-link">
 
                             <i class="fa fa-plus-square-o nav-icon"></i>
                             <p>New Sales</p>
@@ -56,13 +56,13 @@
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Add_Sale_Return" class="nav-link">
+                          <a href="/Add_Sale_Return" class="nav-link">
                             <i class="fa fa-plus-square-o nav-icon"></i>
                             <p>New Sales Return</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Sale_Returns" class="nav-link">
+                          <a href="/Sale_Returns" class="nav-link">
                             <i class="fa fa-list nav-icon"></i>
                             <p>Sales Return List</p>
                           </a>
@@ -79,13 +79,13 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="Add_Customer" class="nav-link">
+                          <a href="/Add_Customer" class="nav-link">
                             <i class="fa fa-plus-square-o  nav-icon"></i>
                             <p>New Customer</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Customers" class="nav-link">
+                          <a href="/Customers" class="nav-link">
                             <i class="fa fa-list nav-icon"></i>
                             <p>Customers List</p>
                           </a>
@@ -108,25 +108,25 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="Add_Purchase" class="nav-link">
+                          <a href="/Add_Purchase" class="nav-link">
                             <i class="fa fa-plus-square-o  nav-icon"></i>
                             <p>New Purchase</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Purchases" class="nav-link">
+                          <a href="/Purchases" class="nav-link">
                             <i class="fa fa-list nav-icon"></i>
                             <p>Purchase List</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Add_Purchase_Return" class="nav-link">
+                          <a href="/Add_Purchase_Return" class="nav-link">
                             <i class="fa fa-plus-square-o nav-icon"></i>
                             <p>New Purchase Return</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Purchase_Returns" class="nav-link">
+                          <a href="/Purchase_Returns" class="nav-link">
                             <i class="fa fa-list nav-icon"></i>
                             <p> Purchase Return List</p>
                           </a>
@@ -143,13 +143,13 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="Add_Supplier" class="nav-link">
+                          <a href="/Add_Supplier" class="nav-link">
                             <i class="fa fa-plus-square-o nav-icon"></i>
                             <p>New Suppliers</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Suppliers" class="nav-link">
+                          <a href="/Suppliers" class="nav-link">
                             <i class="fa fa-list  nav-icon"></i>
                             <p>Suppliers List</p>
                           </a>
@@ -172,37 +172,37 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="Add_item" class="nav-link">
+                          <a href="/Add_item" class="nav-link">
                             <i class="fa fa-plus-square-o  nav-icon"></i>
                             <p>New Items</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Items" class="nav-link">
+                          <a href="/Items" class="nav-link">
                             <i class="fa fa-list  nav-icon"></i>
                             <p>Items List</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Add_item_Category" class="nav-link">
+                          <a href="/Add_item_Category" class="nav-link">
                             <i class="fa fa-list  nav-icon"></i>
                             <p>New Category</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="item_Category" class="nav-link">
+                          <a href="/item_Category" class="nav-link">
                             <i class="fa fa-list  nav-icon"></i>
                             <p>Category List</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Add_item_Brand" class="nav-link">
+                          <a href="/Add_item_Brand" class="nav-link">
                             <i class="fa fa-list  nav-icon"></i>
                             <p> New Brand</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="item_Brand" class="nav-link">
+                          <a href="/item_Brand" class="nav-link">
                             <i class="fa fa-list  nav-icon"></i>
                             <p> Brand List</p>
                           </a>
@@ -225,25 +225,25 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="Add_Expence" class="nav-link">
+                          <a href="/Add_Expence" class="nav-link">
                             <i class="fa fa-plus-square-o nav-icon"></i>
                             <p>New Expences</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Expences" class="nav-link">
+                          <a href="/Expences" class="nav-link">
                             <i class="fa fa-list  nav-icon"></i>
                             <p>Expences List</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Add_Expence_Category" class="nav-link">
+                          <a href="/Add_Expence_Category" class="nav-link">
                             <i class="fa fa-plus-square-o  nav-icon"></i>
                             <p>New Category</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Expence_Category" class="nav-link">
+                          <a href="/Expence_Category" class="nav-link">
                             <i class="fa fa-list nav-icon"></i>
                             <p>Category List</p>
                           </a>
@@ -260,25 +260,25 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="Add_Country" class="nav-link">
+                          <a href="/Add_Country" class="nav-link">
                             <i class="fa fa-plus-square-o  nav-icon"></i>
                             <p>New Country </p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Countries" class="nav-link">
+                          <a href="/Countries" class="nav-link">
                             <i class="fa fa-list  nav-icon"></i>
                             <p>Countries List</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="Add_State" class="nav-link">
+                          <a href="/Add_State" class="nav-link">
                             <i class="fa fa-plus-square-o nav-icon"></i>
                             <p>New State</p>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a href="States" class="nav-link">
+                          <a href="/States" class="nav-link">
                             <i class="fa fa-list  nav-icon"></i>
                             <p>State List</p>
                           </a>
@@ -295,49 +295,49 @@
                       </a>
                       <ul class="nav nav-treeview">
                         <li class="nav-item">
-                          <a href="Profit_Loss_Report" class="nav-link">
+                          <a href="/Profit_Loss_Report" class="nav-link">
                             <i class="fa fa-file nav-icon"></i>
                             <p>Profit & Loss report  </p>
                           </a>
                         </li>
 
                         <li class="nav-item">
-                          <a href="Purchase_Report" class="nav-link">
+                          <a href="/Purchase_Report" class="nav-link">
                             <i class="fa fa-file nav-icon"></i>
                             <p>Purchase Report  </p>
                           </a>
                         </li>
 
                           <li class="nav-item">
-                            <a href="Purchase_Return_Report" class="nav-link">
+                            <a href="/Purchase_Return_Report" class="nav-link">
                               <i class="fa fa-file nav-icon"></i>
                               <p>Purchase Return Report   </p>
                             </a>
                           </li>
 
                           <li class="nav-item">
-                            <a href="Purchase_Payment_Report" class="nav-link">
+                            <a href="/Purchase_Payment_Report" class="nav-link">
                               <i class="fa fa-file nav-icon"></i>
                               <p>Purchase Payment Report   </p>
                             </a>
                           </li>
 
                           <li class="nav-item">
-                            <a href="Item_Sales_Report" class="nav-link">
+                            <a href="/Item_Sales_Report" class="nav-link">
                               <i class="fa fa-file nav-icon"></i>
                               <p> Item Sales Report   </p>
                             </a>
                           </li>
 
                           <li class="nav-item">
-                            <a href="Item_Purchase_Report" class="nav-link">
+                            <a href="/Item_Purchase_Report" class="nav-link">
                               <i class="fa fa-file nav-icon"></i>
                               <p> Item Purchase Report   </p>
                             </a>
                           </li>
 
                           <li class="nav-item">
-                            <a href="Sales_Report" class="nav-link">
+                            <a href="/Sales_Report" class="nav-link">
                               <i class="fa fa-file nav-icon"></i>
                               <p>  Sales Report   </p>
                             </a>

@@ -30,7 +30,7 @@
                                                                             </div> 
                                                                             <div class="col-md-6"></div> 
                                                                             <div class=" col-md-2 box-tools float-right mb-3">
-                                                                                <a class="btn btn-block btn-info " href="#">
+                                                                                <a class="btn btn-block btn-info " href="Tax/add">
                                                                                 <i class="fa fa-plus "></i> New Tax  </a>
                                                                             </div>  
                                                                         </div>
@@ -52,8 +52,7 @@
                                                                     </label>
                                                                     </div><div id="example2_processing" class="dataTables_processing panel panel-default" style="display: none;"></div></div><div class="pull-right margin-left-10 ">
                                                                     <div class="dt-buttons btn-group mt-4 mr-2">              
-                                                                    <button class="btn btn-default bg-red color-palette btn-flat hidden delete_btn pull-left" tabindex="0" aria-controls="example2" type="button">
-                                                                    <span>Delete</span></button> <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
+                                                                    <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
                                                                     <span>CSV</span></button> 
                                                                     <button class="btn btn-default buttons-collection buttons-colvis bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button" aria-haspopup="true"><span>Columns</span></button> 
                                                                     </div></div></div>
@@ -71,9 +70,9 @@
                                                                             <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 253px;" aria-label="Action">Action</th></tr>
                                                                         </thead>                 
                                                                         <tbody>
-                                                                            <tr role="row" >     
-                                                                                <td>SGST 9%</td>
-                                                                                <td>9.00</td>
+                                                                            <tr role="row" v-for="(data,index) in taxData" v-bind:key="data.id">     
+                                                                                <td>{{data.tax_name}}</td>
+                                                                                <td>{{data.tax}}</td>
                                                                                     <td>
                                                                                         <span class="label label-success bg-success p-2 rounded" style="cursor:pointer">Active </span>
                                                                                     </td>
@@ -88,7 +87,7 @@
                                                                                                 </a>
                                                                                             </li>
                                                                                             <li>
-                                                                                                <a style="cursor:pointer" title="Delete Record ?">
+                                                                                                <a style="cursor:pointer" title="Delete Record ?" @click="deleteData(data.id,index)">
                                                                                                     <i class="fa fa-fw fa-trash text-red"></i>Delete
                                                                                                 </a>
                                                                                             </li>
@@ -96,137 +95,6 @@
                                                                                     </div>
                                                                                 </td>
                                                                             </tr>
-
-                                                                            <tr role="row" >     
-                                                                                <td>SGST 9%</td>
-                                                                                <td>9.00</td>
-                                                                                    <td>
-                                                                                        <span class="label label-success bg-success p-2 rounded" style="cursor:pointer">Active </span>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                    <div class="btn-group" title="View Account">
-                                                                                        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                            Action <span class="caret"></span>
-                                                                                        </a>
-                                                                                        <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                                <a title="Edit Record ?" href="#">
-                                                                                                    <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                </a>
-                                                                                            </li>
-                                                                                            <li>
-                                                                                                <a style="cursor:pointer" title="Delete Record ?">
-                                                                                                    <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                </a>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-
-                                                                            <tr role="row" >     
-                                                                                <td>SGST 9%</td>
-                                                                                <td>9.00</td>
-                                                                                    <td>
-                                                                                        <span class="label label-success bg-success p-2 rounded" style="cursor:pointer">Active </span>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                    <div class="btn-group" title="View Account">
-                                                                                        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                            Action <span class="caret"></span>
-                                                                                        </a>
-                                                                                        <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                                <a title="Edit Record ?" href="#">
-                                                                                                    <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                </a>
-                                                                                            </li>
-                                                                                            <li>
-                                                                                                <a style="cursor:pointer" title="Delete Record ?">
-                                                                                                    <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                </a>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-
-                                                                            <tr role="row" >     
-                                                                                <td>SGST 9%</td>
-                                                                                <td>9.00</td>
-                                                                                    <td>
-                                                                                        <span class="label label-success bg-success p-2 rounded" style="cursor:pointer">Active </span>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                    <div class="btn-group" title="View Account">
-                                                                                        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                            Action <span class="caret"></span>
-                                                                                        </a>
-                                                                                        <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                                <a title="Edit Record ?" href="#">
-                                                                                                    <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                </a>
-                                                                                            </li>
-                                                                                            <li>
-                                                                                                <a style="cursor:pointer" title="Delete Record ?">
-                                                                                                    <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                </a>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-
-                                                                            <tr role="row" >     
-                                                                                <td>SGST 9%</td>
-                                                                                <td>9.00</td>
-                                                                                    <td>
-                                                                                        <span class="label label-success bg-success p-2 rounded" style="cursor:pointer">Active </span>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                    <div class="btn-group" title="View Account">
-                                                                                        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                            Action <span class="caret"></span>
-                                                                                        </a>
-                                                                                        <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                                <a title="Edit Record ?" href="#">
-                                                                                                    <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                </a>
-                                                                                            </li>
-                                                                                            <li>
-                                                                                                <a style="cursor:pointer" title="Delete Record ?">
-                                                                                                    <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                </a>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-
-                                                                            <tr role="row" >     
-                                                                                <td>SGST 9%</td>
-                                                                                <td>9.00</td>
-                                                                                    <td>
-                                                                                        <span class="label label-success bg-success p-2 rounded" style="cursor:pointer">Active </span>
-                                                                                    </td>
-                                                                                    <td>
-                                                                                    <div class="btn-group" title="View Account">
-                                                                                        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                            Action <span class="caret"></span>
-                                                                                        </a>
-                                                                                        <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                                <a title="Edit Record ?" href="#">
-                                                                                                    <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                </a>
-                                                                                            </li>
-                                                                                            <li>
-                                                                                                <a style="cursor:pointer" title="Delete Record ?">
-                                                                                                    <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                </a>
-                                                                                            </li>
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                            
                                                                         </tbody>
                                                                         
                                                                         
@@ -286,8 +154,7 @@
                                                                     </label>
                                                                     </div><div id="example2_processing" class="dataTables_processing panel panel-default" style="display: none;"></div></div><div class="pull-right margin-left-10 ">
                                                                     <div class="dt-buttons btn-group mt-4 mr-2">              
-                                                                    <button class="btn btn-default bg-red color-palette btn-flat hidden delete_btn pull-left" tabindex="0" aria-controls="example2" type="button">
-                                                                    <span>Delete</span></button> <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
+                                                                    <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
                                                                     <span>CSV</span></button> 
                                                                     <button class="btn btn-default buttons-collection buttons-colvis bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button" aria-haspopup="true"><span>Columns</span></button> 
                                                                     </div></div></div>
@@ -332,7 +199,7 @@
                                                                                     </div>
                                                                                 </td>
                                                                             </tr>
-                                                                            <tr role="row" >     
+                                                                            <tr role="row">     
                                                                                 <td>GST 18%</td>
                                                                                 <td>18.00</td>
                                                                                 <td>(ISGT 9%)+(SGST 9%)</td>
@@ -391,14 +258,48 @@
 import Navbar from  '../../components/Navbar.vue'
 import Sidebar from '../../components/Sidebar.vue'
 import Footer from  '../../components/Footer.vue'
+import axios from 'axios'
 
 export default {
     name:'',
+    data(){
+        return{
+            taxData:[]
+        }
+    },
     components: {
-    Navbar,
-    Sidebar,
-    Footer
-}
+        Navbar,
+        Sidebar,
+        Footer
+    },
+    mounted(){
+        this.getTaxData()
+    },
+    methods:{
+        getTaxData: function(){
+            axios.get("http://192.168.100.9/Project_Laravel/public/api/tax")
+                // return promise
+            .then((res)=>{
+                this.taxData=res.data;
+                    console.log(res.data);
+            })
+                // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },
+        deleteData: function(id,index) {
+            this.taxData.splice(index,1)
+            axios.delete('http://192.168.100.9/Project_Laravel/public/api/tax/' + id)
+            .then((res)=>{
+                console.log(res);
+            })
+            // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },
+    }
 
 }
 </script>

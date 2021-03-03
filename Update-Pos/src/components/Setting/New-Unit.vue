@@ -6,7 +6,7 @@
                         <div class="content-wrapper p-2">
                                 <div class="content-header ">
                                             <!---Start Third card shop-->
-                                            <h2 class="text-md ml-4"><span class="text-lg">Expense Category</span>  Add / <small class="text-gray text-sm"><span>Update Expense Category</span></small></h2>
+                                            <h2 class="text-md ml-4"><span class="text-lg">Unit </span> <small class="text-gray text-sm"><span> Add / Update Expense Category</span></small></h2>
                                             <!-- alert start -->
                                             <div class="content-header">
                                                 <div class="container-fluid">
@@ -29,9 +29,9 @@
                                                                 <form @submit.prevent="postData" method="post">
                                                                     <div class="box-body">
                                                                         <div class="form-group">
-                                                                            <label for="category" class="col-sm-2 control-label">Category Name<label class="text-danger">*</label></label>
+                                                                            <label for="category" class="col-sm-2 control-label">Unit Name<label class="text-danger">*</label></label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control input-sm" id="category" name="category" placeholder="Category Name" v-model="posts.category_name">
+                                                                        <input type="text" class="form-control input-sm" id="category" name="category" placeholder="Category Name" v-model="posts.unit_name">
                                                                                 <span id="category_msg" style="display:none" class="text-danger"></span>
                                                                         </div>
                                                                     </div>
@@ -79,7 +79,7 @@ export default {
     data(){
         return{
             posts:{
-                category_name:'',
+                unit_name:'',
                 desc:''
             }
         }
@@ -88,14 +88,14 @@ export default {
             postData(e){
                 confirm('Do You Wants to Save Record ?')
                 const formdata = new FormData();
-                formdata.append('category_name',this.posts.category_name),
+                formdata.append('unit_name',this.posts.unit_name),
                 formdata.append('description',this.posts.desc),
                 // this.formdata = { headers: { 'Content-Type': 'multipart/formdata' } }
-                axios.post("http://192.168.100.9/Project_Laravel/public/api/expence_category",formdata)
+                axios.post("http://192.168.100.9/Project_Laravel/public/api/unit",formdata)
                 // return promise
                 .then((res)=>{
                     console.log(res);
-                    this.posts.category_name='',
+                    this.posts.unit_name='',
                     this.posts.desc=''
                 })
                 // catch error

@@ -7,4 +7,8 @@ import App from './App.vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 // import VueNumericInput from 'vue-numeric-input';
-createApp(App).use(router).use(VueAxios, axios).mount('#app')
+createApp(App)
+.use(router)
+.use(VueAxios, axios)
+.mount('#app')
+

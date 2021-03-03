@@ -27,7 +27,7 @@
                                                         <div class="col-md-4"></div> 
                                                         <div class="col-md-6"></div> 
                                                         <div class=" col-md-2 box-tools float-right mb-3">
-                                                            <a class="btn btn-block btn-info " href="#">
+                                                            <a class="btn btn-block btn-info " href="/Add_Expence">
                                                             <i class="fa fa-plus "></i> Add Category </a>
                                                         </div>  
                                                     </div>
@@ -49,80 +49,56 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="box-body">
-                                                        <table id="example2" class="table table-bordered table-striped dataTable dtr-inline" width="100%" role="grid" aria-describedby="example2_info" style="width: 100%;">
-                                                            <thead class="bg-primary ">
-                                                                <tr role="row">
-                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 75px;" >Date</th>
-                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 94px;" >Category</th>
-                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 135px;">Reference No.</th>
-                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 115px;">Expense for</th>
-                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 85px;">Amount</th>
-                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 206px;">Note</th>
-                                                                    <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width: 108px;">Created by</th>
-                                                                    <th class="sorting" rowspan="1" colspan="1" style="width: 112px;">Action</th>
-                                                                </tr>
+                                                        <table id="example2" class="table table-bordered table-striped dataTable dtr-inline" width="100%" role="grid" aria-describedby="example2_info" style="width: 100%;"><thead class="bg-primary ">
+                                                            <tr role="row">
+                                                            <th class="sorting" rowspan="1" colspan="1">Date</th>
+                                                            <th class="sorting" rowspan="1" colspan="1">Category</th>
+                                                            <th class="sorting" rowspan="1" colspan="1">Reference No.</th>
+                                                            <th class="sorting" rowspan="1" colspan="1">Expense for</th>
+                                                            <th class="sorting" rowspan="1" colspan="1">Amount</th>
+                                                            <th class="sorting" rowspan="1" colspan="1">Note</th>
+                                                            <th class="sorting" rowspan="1" colspan="1">Created by</th>
+                                                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 112px;" aria-label="Action">Action</th></tr>
                                                             </thead>                         
                                                         <tbody>    
-                                                                <tr role="row">
-                                                                    <td>06-02-2021</td>
-                                                                    <td>Office Vehicle</td>
-                                                                    <td>101</td>
-                                                                    <td>Sumit</td>
-                                                                    <td>200.00</td>
-                                                                    <td>Repairing the vehicle</td>
-                                                                    <td>Admin</td>
-                                                                    <td>
-                                                                        <div class="btn-group" title="View Account">
-                                                                            <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                Action <span class="caret"></span>
-                                                                            </a>
-                                                                            <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                    <a title="Edit Record ?" href="#">
-                                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                    </a>
-                                                                                </li><li>
-                                                                                    <a style="cursor:pointer" title="Delete Record ?" onclick="delete_expense(24)">
-                                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                    </a>
-                                                                                </li>  
-                                                                            </ul>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr role="row">
-                                                                    <td>06-02-2021</td>
-                                                                    <td>Office Vehicle</td>
-                                                                    <td>101</td>
-                                                                    <td>Sumit</td>
-                                                                    <td>200.00</td>
-                                                                    <td>Repairing the vehicle</td>
-                                                                    <td>Admin</td>
-                                                                    <td>
-                                                                        <div class="btn-group" title="View Account">
-                                                                            <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                Action <span class="caret"></span>
-                                                                            </a>
-                                                                            <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                    <a title="Edit Record ?" href="#">
-                                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                    </a>
-                                                                                </li><li>
-                                                                                    <a style="cursor:pointer" title="Delete Record ?" onclick="delete_expense(24)">
-                                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                    </a>
-                                                                                </li>  
-                                                                            </ul>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                            <tr role="row" v-for="(data , index) in expenceData" v-bind:key="data.id">
+                                                                <td>{{data.date}}</td>
+                                                                <td>{{data.category_name}}</td>
+                                                                <td>{{data.reference_no}}</td>
+                                                                <td>{{data.expense_for}}</td>
+                                                                <td>{{data.amount}}</td>
+                                                                <td>{{data.description}}</td>
+                                                                <td>{{data.created_by}}</td>
+                                                                <td>
+                                                                    <div class="btn-group" title="View Account">
+                                                                        <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
+                                                                            Action <span class="caret"></span>
+                                                                        </a>
+                                                                        <ul role="menu" class="dropdown-menu dropdown-light pull-right">
+                                                                            <li>
+                                                                                <a title="Edit Record ?" href="#">
+                                                                                    <i class="fa fa-fw fa-edit text-blue"></i>Edit
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a style="cursor:pointer" title="Delete Record ?" href="#" @click="deleteData(data.id,index)">
+                                                                                    <i class="fa fa-fw fa-trash text-red"></i>Delete
+                                                                                </a>
+                                                                            </li>  
+                                                                        </ul>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
                                                         </tbody>
-                                                            <tfoot class="bg-gray">
-                                                                <tr class="">
-                                                                    <th colspan="4" style="text-align:right" class="text-center" rowspan="1">Total</th>
-                                                                    <th rowspan="1" colspan="1">400.0</th><th rowspan="1" colspan="1"></th>
-                                                                    <th rowspan="1" colspan="1"></th><th rowspan="1" colspan="1"></th>
-                                                                </tr>
-                                                            </tfoot>         
+                                                        <tfoot class="bg-gray">
+                                                            <tr class="">
+                                                                <th colspan="4" style="text-align:right" class="text-center" rowspan="1">Total</th>
+                                                                <th rowspan="1" colspan="1">{{ totalAmount() }}</th>
+                                                                <th rowspan="1" colspan="1"></th>
+                                                                <th rowspan="1" colspan="1"></th>
+                                                                <th rowspan="1" colspan="1"></th>
+                                                            </tr>
+                                                        </tfoot>         
                                                         </table>
                                                         <div class="next d-flex justify-content-between align-items-center">
                                                             <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to 10 of 22 entries</div><div class="dataTables_paginate paging_simple_numbers" id="example2_paginate"></div>
@@ -139,7 +115,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <!--End Product Table-->
                                         </div>
                                     </div> 
@@ -155,14 +130,55 @@
 import Navbar from  '../../components/Navbar.vue'
 import Sidebar from '../../components/Sidebar.vue'
 import Footer from  '../../components/Footer.vue'
+import axios from 'axios'
 
 export default {
     name:'',
+    data(){
+        return{
+            expenceData:[],
+        }
+    },
     components: {
-    Navbar,
-    Sidebar,
-    Footer
-}
+        Navbar,
+        Sidebar,
+        Footer
+    },
+    mounted(){
+        this.getExpenceData()
+    },
+    methods:{
+        getExpenceData: function(){
+            axios.get("http://192.168.100.9/Project_Laravel/public/api/expence")
+                // return promise
+            .then((res)=>{
+                this.expenceData=res.data;
+                    console.log(res.data);
+            })
+                // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },
+        totalAmount: function(){
+            let sum = 0;
+            this.expenceData.forEach(value => {
+                sum += value.amount;
+            })
+            return sum;
+        },
+        deleteData: function(id,index) {
+            this.expenceData.splice(index,1)
+            axios.delete('http://192.168.100.9/Project_Laravel/public/api/expence/' + id)
+            .then((res)=>{
+                console.log(res);
+            })
+            // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },
+    }
 
 }
 </script>

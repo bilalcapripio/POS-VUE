@@ -30,8 +30,8 @@
                                                             <div class="col-md-3"></div>                              
                                                             <div class="col-md-4"></div> 
                                                             <div class=" col-md-2 box-tools float-right">
-                                                                <a class="btn btn-block btn-info " href="#">
-                                                                <i class="fa fa-plus "></i> New Item</a>
+                                                                <a class="btn btn-block btn-info " href="/Add_State ">
+                                                                <i class="fa fa-plus "></i> Add New State </a>
                                                             </div>  
                                                         </div>
                                                         <hr>
@@ -72,9 +72,9 @@
                                                                     <tr role="row"><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 304px;" aria-label="State Name: activate to sort column ascending">State Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 360px;" aria-label="Country Name: activate to sort column ascending">Country Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 207px;" aria-label="Status: activate to sort column ascending">Status</th><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 269px;" aria-label="Action">Action</th></tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                         <tr v-for="data in apidata" v-bind:key="data.index">
-                                                                            <td>{{data.Country}}</td>
-                                                                            <td>{{data.State_Name}}</td>
+                                                                         <tr v-for="data in stateData" v-bind:key="data.index">
+                                                                            <td>{{data.state_name}}</td>
+                                                                            <td>{{data.country_name}}</td>
                                                                             <td>Active</td>
                                                                             <td>
                                                                                 <div class="btn-group" title="View Account">
@@ -83,12 +83,12 @@
                                                                                     </a>
                                                                                     <ul role="menu" class="dropdown-menu dropdown-light pull-right">
                                                                                         <li>
-                                                                                            <a :href="`http://192.168.100.9/Project_Laravel/public/api/state/${data.id}`">
+                                                                                            <a href="#" @click="editData">
                                                                                                 <i class="fa fa-fw fa-edit text-blue"></i>Edit
                                                                                             </a>
                                                                                         </li>
                                                                                         <li>
-                                                                                            <a :href="`http://192.168.100.9/Project_Laravel/public/api/state/${data.id}`">
+                                                                                            <a href="#" @click="deleteData(data.id,data.index)">
                                                                                                 <i class="fa fa-fw fa-trash text-red"></i>Delete
                                                                                             </a>
                                                                                         </li>
@@ -127,12 +127,14 @@
 import Navbar from  '../../components/Navbar.vue'
 import Sidebar from '../../components/Sidebar.vue'
 import Footer from  '../../components/Footer.vue'
+import axios from 'axios'
+
 
 export default {
     name:'',
     data(){
         return{
-            apidata:[]
+            stateData:[]
         }
     },
     components: {
@@ -142,25 +144,30 @@ export default {
     },
     mounted(){
             this.statedata()
-        //  console.log(this.apidata)
     },
     methods:{
-        statedata: async function(){
-            try{
-                fetch('http://192.168.100.9/Project_Laravel/public/api/state')
-                .then(function(response){
-                    response.json()
-                    .then(function(data){
-                        console.log(data);
-                        this.apidata = data;
-                    }.bind(this))
-                }.bind(this))
-                // var response = api.json()
-                // console.log(api)
-                // this.apidata = response
-            }catch(error){
+        deleteData: function(id,index) {
+            this.stateData.splice(index,1)
+            axios.delete('http://192.168.100.9/Project_Laravel/public/api/state/' + id)
+            .then((res)=>{
+                console.log(res);
+            })
+            // catch error
+            .catch(error =>{
                 console.log(error)
-            }
+            });
+        }, 
+        statedata: function(){
+            axios.get("http://192.168.100.9/Project_Laravel/public/api/state")
+                // return promise
+            .then((res)=>{
+                this.stateData=res.data;
+                    console.log(res.data);
+                })
+                // catch error
+            .catch(error =>{
+                console.log(error)
+            });
         },
 
     }

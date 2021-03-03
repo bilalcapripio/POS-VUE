@@ -42,16 +42,15 @@ import Sales from '@/components/Sales-Page/Sales-List.vue';
 import Add_Sale_Return from '@/components/Sales-Page/Sales-Return.vue';
 import Sale_Returns from '@/components/Sales-Page/Sales-RL.vue';
 import Currency from '@/components/Setting/Currency.vue';
-
-
+import Add_Currency from '@/components/Setting/New-Currency.vue';
 import Payments from '@/components/Setting/Payments';
-
-
 import Password from '@/components/Setting/Password.vue';
 import Payment from '@/components/Setting/Payment.vue';
 import Profile from '@/components/Setting/Profile.vue';
 import Site from '@/components/Setting/Site.vue';
 import Tax from '@/components/Setting/Tax.vue';
+import Add_Tax from '@/components/Setting/New-Tax.vue';
+import Add_Unit from '@/components/Setting/New-Unit.vue';
 import Unit from '@/components/Setting/Unit.vue';
 import Suppliers from '@/components/Suppplier/Supplier-List.vue';
 import Add_Supplier from '@/components/Suppplier/Supplier.vue';
@@ -80,6 +79,8 @@ const routes=[
     {path:'/Add_item', name:'Add_item', component:Add_item},
     {path:'/Countries', name:'Countries', component:Countries},
     {path:'/Add_Country', name:'Add_Country', component:Add_Country},    
+    {path:'/Unit/add', name:'Add_Unit', component:Add_Unit},
+    {path:'/Tax/add', name:'Add_Tax', component:Add_Tax},
     {path:'/States', name:'States', component:States},
     {path:'/Add_State', name:'Add_State', component:Add_State},
     {path:'/Purchases', name:'Purchases', component:Purchases},
@@ -103,6 +104,7 @@ const routes=[
     {path:'/Add_Sale_Return', name:'Add_Sale_Return', component:Add_Sale_Return},
     {path:'/Sale_Returns', name:'Sale_Returns', component:Sale_Returns},
     {path:'/Currency', name:'Currency', component:Currency},    
+    {path:'/Currency/add', name:'Add_Currency', component:Add_Currency},
     {path:'/Password', name:'Password', component:Password},
     {path:'/Payment', name:'Payment', component:Payment},
     {path:'/Profile', name:'Profile', component:Profile},

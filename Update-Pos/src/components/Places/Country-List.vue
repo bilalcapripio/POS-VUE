@@ -28,7 +28,7 @@
                                                         <div class="col-md-3"></div>                              
                                                         <div class="col-md-4"></div> 
                                                         <div class=" col-md-2 box-tools float-right">
-                                                            <a class="btn btn-block btn-info " href="#">
+                                                            <a class="btn btn-block btn-info " href="/Add_Country">
                                                             <i class="fa fa-plus "></i> New Item</a>
                                                         </div>  
                                                     </div>
@@ -49,11 +49,15 @@
                                                     <div class="box-body">
                                                         <table id="example2" class="table table-bordered table-striped dataTable no-footer dtr-inline" width="100%" role="grid" aria-describedby="example2_info" style="width: 100%;">
                                                             <thead class="bg-primary ">
-                                                                <tr role="row"><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 507px;" aria-label="Country Name: activate to sort column ascending">Country Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 298px;" aria-label="Status: activate to sort column ascending">Status</th><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 374px;" aria-label="Action">Action</th></tr>
+                                                                <tr role="row">
+                                                                    <th class="sorting" rowspan="1" colspan="1" style="width: 507px;">Country Name</th>
+                                                                    <th class="sorting" rowspan="1" colspan="1" style="width: 298px;">Status</th>
+                                                                    <th class="sorting" rowspan="1" colspan="1" style="width: 374px;">Action</th>
+                                                                </tr>
                                                             </thead>
                                                             <tbody>
-                                                                  <tr v-for="data in apidata" v-bind:key="data.index">
-                                                                            <td>{{data.Country_Name}}</td>
+                                                                <tr v-for="data in countryData" v-bind:key="data.index">
+                                                                            <td>{{data.country_name}}</td>
                                                                             <td>Active</td>
                                                                             <td>
                                                                                 <div class="btn-group" title="View Account">
@@ -62,12 +66,12 @@
                                                                                     </a>
                                                                                     <ul role="menu" class="dropdown-menu dropdown-light pull-right">
                                                                                         <li>
-                                                                                            <a :href="`http://192.168.100.9/Project_Laravel/public/api/country/${data.id}`">
+                                                                                            <a href="#" @click="editData(data.id)">
                                                                                                 <i class="fa fa-fw fa-edit text-blue"></i>Edit
                                                                                             </a>
                                                                                         </li>
                                                                                         <li>
-                                                                                            <a :href="`http://192.168.100.9/Project_Laravel/public/api/state/${data.id}`">
+                                                                                            <a href="#" @click="deleteData(data.id,data.index)">
                                                                                                 <i class="fa fa-fw fa-trash text-red"></i>Delete
                                                                                             </a>
                                                                                         </li>
@@ -106,12 +110,13 @@
 import Navbar from  '../../components/Navbar.vue'
 import Sidebar from '../../components/Sidebar.vue'
 import Footer from  '../../components/Footer.vue'
+import axios from 'axios'
 
 export default {
     name:'',
     data(){
         return{
-            apidata:[]
+            countryData:[]
         }
     },
     components: {
@@ -120,26 +125,34 @@ export default {
     Footer
     },
     mounted(){
-         this.statedata()
-        //  console.log(this.apidata)
+         this.getCountryData()
     },
     methods:{
-        statedata: function(){
-            try{
-                fetch('http://192.168.100.9/Project_Laravel/public/api/country').then( function(response){
-                   response.json().then(function(data){
-                    //    console.log(data)
-                       this.apidata = data;
-
-                   }.bind(this))
-                }.bind(this))
-                // var response = api.json()
-                // console.log(api)
-                // this.apidata = response
-            }catch(error){
+        getCountryData: function(){
+            axios.get("http://192.168.100.9/Project_Laravel/public/api/country")
+                // return promise
+            .then((res)=>{
+                this.countryData=res.data;
+                console.log(res.data);
+            })
+                // catch error
+            .catch(error =>{
                 console.log(error)
-            }
-        }
+            });
+        },
+        deleteData: function(id,index) {
+            this.countryData.splice(index,1)
+            console.log(this.countryData);
+            axios.delete('http://192.168.100.9/Project_Laravel/public/api/country/' + id)
+            .then((res)=>{
+                console.log(res);
+            })
+            // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },
+
     }
 
 }

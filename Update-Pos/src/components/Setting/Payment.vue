@@ -61,8 +61,8 @@
                                                                     </tr>
                                                                 </thead>    
                                                                 <tbody>
-                                                                    <tr role="row" v-for="index in paydata" v-bind:key="index.id">
-                                                                        <td>{{index.payment_type_name}}</td>
+                                                                    <tr role="row" v-for="data in paydata" v-bind:key="data.id">
+                                                                        <td>{{data.payment_type_name}}</td>
                                                                             <td><span  class="bg-success rounded p-1" style="cursor:pointer">Active </span></td>
                                                                             <td>
                                                                             <div class="btn-group" title="View Account">
@@ -74,7 +74,7 @@
                                                                                             <i class="fa fa-fw fa-edit text-blue"></i>Edit
                                                                                         </a>
                                                                                     </li><li>
-                                                                                        <a style="cursor:pointer" title="Delete Record ?" @click="deleteData">
+                                                                                        <a style="cursor:pointer" title="Delete Record ?" @click="deleteData(data.id,data.index)">
                                                                                             <i class="fa fa-fw fa-trash text-red"></i>Delete
                                                                                         </a>
                                                                                     </li>   
@@ -126,7 +126,7 @@ export default {
     },
     data(){
         return{
-            paydata:[],
+            paydata:[]
         }
     },
     methods:{
@@ -144,10 +144,10 @@ export default {
         },
     },
     mounted(){
-        axios.get("http://192.168.100.9/Project_Laravel/public/payment_type")
+        axios.get("http://192.168.100.9/Project_Laravel/public/api/payment_type")
                 // return promise
                 .then((res)=>{
-                    this.custdata=res.data;
+                    this.paydata=res.data;
                     console.log(res.data);
                 })
                 // catch error

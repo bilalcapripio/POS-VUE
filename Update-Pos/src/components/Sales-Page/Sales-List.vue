@@ -150,6 +150,7 @@
                                                                                                 <a title="View Invoice" href="#"><i class="fa fa-fw fa-eye text-blue"></i>View Purchase
                                                                                                 </a>
                                                                                             </li>
+
                                                                                             <li>
                                                                                                 <a title="Update Record ?" href="#">
                                                                                                     <i class="fa fa-fw fa-edit text-blue"></i>Edit
@@ -160,6 +161,7 @@
                                                                                                     <i class="fa fa-fw fa-money text-blue"></i>View Payments
                                                                                                 </a>
                                                                                             </li>
+                                                                                            
                                                                                             <li>
                                                                                                 <a title="Pay" class="pointer">
                                                                                                     <i class="fa fa-fw  fa-hourglass-half text-blue"></i>Pay Now

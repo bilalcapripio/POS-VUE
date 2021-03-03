@@ -3,7 +3,7 @@
             <div>
                 <Navbar/>
                     <!-- /.content-wrapper -->
-                        <div class="content-wrapper p-2 mb-5">
+                        <div class="content-wrapper p-2">
                                 <div class="content-header">
                                         <!---Start Third card shop-->
                                         <h2 class="text-md ml-4"><span class="text-lg">Suppliers List</span>  View / <small class="text-gray text-sm"><span>Search Suppliers</span></small></h2>
@@ -29,7 +29,7 @@
                                                         </div> 
                                                         <div class="col-md-6"></div> 
                                                         <div class=" col-md-2 box-tools float-right mb-3">
-                                                            <a class="btn btn-block btn-info " href="#">
+                                                            <a class="btn btn-block btn-info " href="/Add_Supplier">
                                                             <i class="fa fa-plus "></i>  New Suppliers </a>
                                                         </div>  
                                                     </div>
@@ -43,7 +43,7 @@
                                                         </label>
                                                         </div><div id="example2_processing" class="dataTables_processing panel panel-default" style="display: none;"></div></div><div class="pull-right margin-left-10 ">
                                                         <div class="dt-buttons btn-group mt-4 mr-2">              
-                                                         <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
+                                                        <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
                                                         <span>CSV</span></button> 
                                                         <button class="btn btn-default buttons-collection buttons-colvis bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button" aria-haspopup="true"><span>Columns</span></button> 
                                                         </div></div></div>
@@ -53,154 +53,57 @@
                                                     <div class="box-body">
                                                         <table id="example2" class="table table-bordered table-striped dataTable dtr-inline" width="100%" role="grid" aria-describedby="example2_info" style="width: 100%;">
                                                             <thead class="bg-primary ">
-                                                                <tr role="row"><th class="text-center sorting_disabled" rowspan="1" colspan="1" style="width: 22px;" aria-label="">
-                                                                    <div class="icheckbox_square-orange" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" class="group_check checkbox" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
-                                                                </th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 62px;" aria-label="Supplier ID: activate to sort column ascending">Supplier ID</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 83px;" aria-label="Supplier Name: activate to sort column ascending">Supplier Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 69px;" aria-label="Mobile: activate to sort column ascending">Mobile</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 141px;" aria-label="Email: activate to sort column ascending">Email</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 68px;" aria-label="Purchase Due: activate to sort column ascending">Purchase Due</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 110px;" aria-label="Purchase Return Due: activate to sort column ascending">Purchase Return Due</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Status: activate to sort column ascending">Status</th><th class="sorting_disabled" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Action">Action</th></tr>
+                                                                <tr role="row">                                                                  
+                                                                    <th class="sorting" rowspan="1" colspan="1">Supplier ID</th>
+                                                                    <th class="sorting" rowspan="1" colspan="1">Supplier Name</th>
+                                                                    <th class="sorting" rowspan="1" colspan="1">Mobile</th>
+                                                                    <th class="sorting text-center" rowspan="1" colspan="1" >Email</th>
+                                                                    <th class="sorting" rowspan="1" colspan="1">Purchase Due</th>
+                                                                    <th class="sorting" rowspan="1" colspan="1">Purchase Return Due</th>
+                                                                    <th class="sorting" rowspan="1" colspan="1" >Status</th>
+                                                                    <th class="sorting_disabled" rowspan="1" colspan="1">Action</th></tr>
                                                             </thead> 
                                                             <tbody>
                                                                 <!-- <tr role="row">                                           -->
-                                                                <tr role="row" class="even"><td class=" text-center" tabindex="0"><div class="icheckbox_square-orange" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" name="checkbox[]" value="7" class="checkbox column_checkbox" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td><td>SP0007</td><td>Aaron</td><td>946545646456</td><td>aaron@gmail.com</td><td>550.00</td><td>0.00</td><td style="display: none;"><span onclick="update_status(7,0)" id="span_7" class="label label-success" style="cursor:pointer">Active </span></td><td style="display: none;"><div class="btn-group" title="View Account">
-                                                                                    <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                            Action <span class="caret"></span>
-                                                                                        </a>
-                                                                                        <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                                <a title="Edit Record ?" href="suppliers/update/7">
-                                                                                                    <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                </a>
-                                                                                            </li><li>
-                                                                                                <a title="Pay Opening Balance &amp; Purchase Due Payments" class="pointer" onclick="pay_now(7)">
-                                                                                                <i class="fa fa-fw fa-money text-blue"></i>Pay Due Payments
-                                                                                                </a>
-                                                                                            </li><li>
-                                                                                                <a title="Pay Return Due" class="pointer" onclick="pay_return_due(7)">
-                                                                                                <i class="fa fa-fw fa-money text-blue"></i>Pay Return Due
-                                                                                                </a>
-                                                                                            </li><li>
-                                                                                                <a style="cursor:pointer" title="Delete Record ?" onclick="delete_suppliers(7)">
-                                                                                                    <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                </a>
-                                                                                            </li>
-                                                                                            
-                                                                                        </ul>
-                                                                    </div></td></tr><tr role="row" class="odd"><td class=" text-center" tabindex="0"><div class="icheckbox_square-orange" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" name="checkbox[]" value="6" class="checkbox column_checkbox" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td><td>SP0006</td><td>Jason Roy</td><td>845455544</td><td>jason@yahoo.com</td><td>0</td><td>0</td><td style="display: none;"><span onclick="update_status(6,0)" id="span_6" class="label label-success" style="cursor:pointer">Active </span></td><td style="display: none;"><div class="btn-group" title="View Account">
-                                                                        <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                        Action <span class="caret"></span>
+                                                                <tr role="row" class="even" v-for="data in supplierData" v-bind:key="data.id">
+                                                                    <td>SP00{{auto++}}</td>
+                                                                    <td>{{data.supplier_name}}</td>
+                                                                    <td>{{data.mobile}}</td>
+                                                                    <td>{{data.email}}</td>
+                                                                    <td>0.00</td>
+                                                                    <td>0.00</td>
+                                                                    <td style="">
+                                                                        <span class="label label-success" style="cursor:pointer">Active </span>
+                                                                    </td>
+                                                                    <td style="">
+                                                                        <div class="btn-group" title="View Account">
+                                                                            <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
+                                                                                Action <span class="caret"></span>
                                                                             </a>
                                                                             <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                            <a title="Edit Record ?" href="suppliers/update/6">
-                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
+                                                                                <a title="Edit Record ?" href="suppliers/update/7">
+                                                                                    <i class="fa fa-fw fa-edit text-blue"></i>Edit
                                                                                 </a>
                                                                                 </li>
                                                                                 <li>
-                                                                                <a title="Pay Opening Balance &amp; Purchase Due Payments" class="pointer" onclick="pay_now(6)">
+                                                                                    <a title="Pay Opening Balance &amp; Purchase Due Payments" class="pointer" onclick="pay_now(7)">
                                                                                         <i class="fa fa-fw fa-money text-blue"></i>Pay Due Payments
                                                                                     </a>
-                                                                                    </li><li>
-                                                                                    <a title="Pay Return Due" class="pointer" onclick="pay_return_due(6)">
+                                                                                </li>
+                                                                                <li>
+                                                                                    <a title="Pay Return Due" class="pointer" onclick="pay_return_due(7)">
                                                                                         <i class="fa fa-fw fa-money text-blue"></i>Pay Return Due
                                                                                     </a>
-                                                                                    </li><li>
-                                                                                    <a style="cursor:pointer" title="Delete Record ?" onclick="delete_suppliers(6)">
+                                                                                </li>
+                                                                                <li>
+                                                                                    <a style="cursor:pointer" title="Delete Record ?" href="#" @click="deleteData(data.id,data.index)">
                                                                                         <i class="fa fa-fw fa-trash text-red"></i>Delete
                                                                                     </a>
-                                                                                </li>            
+                                                                                </li>
                                                                             </ul>
-                                                                            </div></td></tr><tr role="row" class="even"><td class=" text-center" tabindex="0"><div class="icheckbox_square-orange" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" name="checkbox[]" value="5" class="checkbox column_checkbox" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td><td>SP0005</td><td>David W</td><td>984545454</td><td>davidw@yahoo.com</td><td>290,000.00</td><td>0</td><td style="display: none;"><span onclick="update_status(5,0)" id="span_5" class="label label-success" style="cursor:pointer">Active </span></td><td style="display: none;"><div class="btn-group" title="View Account">
-                                                                                <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                    Action <span class="caret"></span>
-                                                                                </a>
-                                                                                <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                        <a title="Edit Record ?" href="suppliers/update/5">
-                                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                        </a>
-                                                                                    </li><li>
-                                                                                        <a title="Pay Opening Balance &amp; Purchase Due Payments" class="pointer" onclick="pay_now(5)">
-                                                                                            <i class="fa fa-fw fa-money text-blue"></i>Pay Due Payments
-                                                                                        </a>
-                                                                                        </li><li>
-                                                                                        <a title="Pay Return Due" class="pointer" onclick="pay_return_due(5)">
-                                                                                            <i class="fa fa-fw fa-money text-blue"></i>Pay Return Due
-                                                                                        </a>
-                                                                                        </li><li>
-                                                                                        <a style="cursor:pointer" title="Delete Record ?" onclick="delete_suppliers(5)">
-                                                                                            <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                        </a>
-                                                                                    </li>
-                                                                                    
-                                                                                </ul>
-                                                                            </div></td></tr><tr role="row" class="odd"><td class=" text-center" tabindex="0"><div class="icheckbox_square-orange" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" name="checkbox[]" value="4" class="checkbox column_checkbox" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td><td>SP0004</td><td>Glenn M</td><td>875454444</td><td>glennm@yahoo.com</td><td>1,000.00</td><td>0.00</td><td style="display: none;"><span onclick="update_status(4,0)" id="span_4" class="label label-success" style="cursor:pointer">Active </span></td><td style="display: none;"><div class="btn-group" title="View Account">
-                                                                                <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                    Action <span class="caret"></span>
-                                                                                </a>
-                                                                                <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                        <a title="Edit Record ?" href="suppliers/update/4">
-                                                                                            <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                        </a>
-                                                                                    </li><li>
-                                                                                        <a title="Pay Opening Balance &amp; Purchase Due Payments" class="pointer" onclick="pay_now(4)">
-                                                                                            <i class="fa fa-fw fa-money text-blue"></i>Pay Due Payments
-                                                                                        </a>
-                                                                                        </li><li>
-                                                                                        <a title="Pay Return Due" class="pointer" onclick="pay_return_due(4)">
-                                                                                            <i class="fa fa-fw fa-money text-blue"></i>Pay Return Due
-                                                                                        </a>
-                                                                                        </li><li>
-                                                                                        <a style="cursor:pointer" title="Delete Record ?" onclick="delete_suppliers(4)">
-                                                                                            <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                        </a>
-                                                                                    </li>
-                                                                                    
-                                                                                </ul>
-                                                                            </div></td></tr><tr role="row" class="even"><td class=" text-center" tabindex="0"><div class="icheckbox_square-orange" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" name="checkbox[]" value="3" class="checkbox column_checkbox" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td><td>SP0003</td><td>Steve Roy</td><td>897546545464</td><td>steveroy@redifmail.com</td><td>0</td><td>0</td><td style="display: none;"><span onclick="update_status(3,0)" id="span_3" class="label label-success" style="cursor:pointer">Active </span></td><td style="display: none;"><div class="btn-group" title="View Account">
-                                                                            <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                Action <span class="caret"></span>
-                                                                                    </a>
-                                                                                    <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                        <a title="Edit Record ?" href="suppliers/update/3">
-                                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                        </a>
-                                                                                        </li><li>
-                                                                                        <a title="Pay Opening Balance &amp; Purchase Due Payments" class="pointer" onclick="pay_now(3)">
-                                                                                            <i class="fa fa-fw fa-money text-blue"></i>Pay Due Payments
-                                                                                                </a>
-                                                                                            </li><li>
-                                                                                                <a title="Pay Return Due" class="pointer" onclick="pay_return_due(3)">
-                                                                                                <i class="fa fa-fw fa-money text-blue"></i>Pay Return Due
-                                                                                                </a>
-                                                                                            </li><li>
-                                                                                                <a style="cursor:pointer" title="Delete Record ?" onclick="delete_suppliers(3)">
-                                                                                                    <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                </a>
-                                                                                            </li>
-                                                                                            
-                                                                                        </ul>
-                                                                                    </div></td></tr><tr role="row" class="odd"><td class=" text-center" tabindex="0"><div class="icheckbox_square-orange" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" name="checkbox[]" value="2" class="checkbox column_checkbox" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -10%; left: -10%; display: block; width: 120%; height: 120%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div></td><td>SP0002</td><td>Walter Scott</td><td>9745454787454</td><td>walterscott@gmail.com</td><td>6,400.00</td><td>0.00</td><td style="display: none;"><span onclick="update_status(2,0)" id="span_2" class="label label-success" style="cursor:pointer">Active </span></td><td style="display: none;"><div class="btn-group" title="View Account">
-                                                                                        <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                                            Action <span class="caret"></span>
-                                                                                        </a>
-                                                                                        <ul role="menu" class="dropdown-menu dropdown-light pull-right"><li>
-                                                                                                <a title="Edit Record ?" href="#">
-                                                                                                    <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                                                </a>
-                                                                                            </li><li>
-                                                                                                <a title="Pay Opening Balance &amp; Purchase Due Payments" class="pointer" onclick="pay_now(2)">
-                                                                                                <i class="fa fa-fw fa-money text-blue"></i>Pay Due Payments
-                                                                                                </a>
-                                                                                            </li><li>
-                                                                                                <a title="Pay Return Due" class="pointer">
-                                                                                                <i class="fa fa-fw fa-money text-blue"></i>Pay Return Due
-                                                                                                </a>
-                                                                                            </li><li>
-                                                                                                <a style="cursor:pointer" title="Delete Record ?">
-                                                                                                    <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                                                </a>
-                                                                                            </li>
-                                                                                            
-                                                                                        </ul>
-
-                                                                    </div>
-                                                            </td>
-                                                        </tr>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
                                                     </tbody>         
                                                         </table>
                                                         <div class="next d-flex justify-content-between align-items-center">
@@ -222,6 +125,7 @@
                                         <!--End Product Table-->
                                     </div>
                                 </div> 
+                                <br><br><br>                                
                             <Footer/>
                             <Sidebar/>
                         </div> 
@@ -234,14 +138,53 @@
 import Navbar from  '../../components/Navbar.vue'
 import Sidebar from '../../components/Sidebar.vue'
 import Footer from  '../../components/Footer.vue'
+import axios from 'axios'
 
 export default {
     name:'',
+    data(){
+        return{
+            supplierData:[],
+            auto:1
+        }
+    },
     components: {
-    Navbar,
-    Sidebar,
-    Footer
-}
+        Navbar,
+        Sidebar,
+        Footer
+    },
+    mounted(){
+        this.getSupplierData();
+    },
+    methods:{
+        getSupplierData: function(){
+            axios.get("http://192.168.100.9/Project_Laravel/public/api/supplier")
+                // return promise
+            .then((res)=>{
+                this.supplierData=res.data;
+                    console.log(res.data);
+                })
+                // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },
+
+        deleteData: function(id,index) {
+            this.supplierData.splice(index,1)
+            console.log(this.supplierData)
+            axios.delete('http://192.168.100.9/Project_Laravel/public/api/supplier/' + id)
+            .then((res)=>{
+                console.log(res);
+            })
+            // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },     
+
+    }
+
 
 }
 </script>

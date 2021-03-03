@@ -3,7 +3,7 @@
             <div>
                 <Navbar/>
                     <!-- /.content-wrapper -->
-                        <div class="content-wrapper p-2 mb-5">
+                        <div class="content-wrapper p-2">
                                 <div class="content-header">
                                     <!---Start Third card shop-->
                                     <h2 class="text-md ml-4"><span class="text-lg">Items List</span>  View / <small class="text-gray text-sm"><span>Search Items</span></small></h2>
@@ -38,20 +38,20 @@
                                                     </div>
                                                     <div class="col-md-4"></div> 
                                                     <div class=" col-md-2 box-tools float-right">
-                                                        <a class="btn btn-block btn-info " href="#">
+                                                        <a class="btn btn-block btn-info " href="/Add_item">
                                                         <i class="fa fa-plus "></i> New Item</a>
                                                     </div>  
                                                 </div>
                                                 <hr>
                                                 <div class="row">
-                                                    <div class="col-sm-12"><div class="pull-left">
+                                                    <div class="col-sm-12">
+                                                    <div class="pull-left">
                                                     <div class="dataTables_length" id="example2_length">
                                                     <label>Show <select name="example2_length" aria-controls="example2" class="form-control input-sm">
                                                     <option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></label></div></div><div class="pull-right"><div id="example2_filter" class="dataTables_filter">
                                                     <label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example2"></label></div><div id="example2_processing" class="dataTables_processing panel panel-default" style="display: none;"><div class="text-primary bg-primary" style="position: relative;z-index:100;overflow: visible;">Processing...</div></div></div><div class="pull-right margin-left-10 ">
                                                     <div class="dt-buttons btn-group mt-4 mr-2">              
-                                                    <button class="btn btn-default bg-red color-palette btn-flat hidden delete_btn pull-left" tabindex="0" aria-controls="example2" type="button">
-                                                    <span>Delete</span></button> <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
+                                                    <button class="btn btn-default buttons-copy buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Copy</span></button> <button class="btn btn-default buttons-excel buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Excel</span></button> <button class="btn btn-default buttons-pdf buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>PDF</span></button> <button class="btn btn-default buttons-print bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button"><span>Print</span></button> <button class="btn btn-default buttons-csv buttons-html5 bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button">
                                                     <span>CSV</span></button> 
                                                     <button class="btn btn-default buttons-collection buttons-colvis bg-teal color-palette btn-flat" tabindex="0" aria-controls="example2" type="button" aria-haspopup="true"><span>Columns</span></button> 
                                                     </div></div></div>
@@ -62,25 +62,30 @@
                                                     <table id="example2" class="table table-bordered table-striped dataTable no-footer dtr-inline" width="100%" role="grid" aria-describedby="example2_info" style="width: 100%;">
                                                     <thead class="bg-primary ">
                                                     <tr role="row">
+                                                        <th rowspan="1" colspan="1">Image</th>
                                                         <th rowspan="1" colspan="1">Item Code</th>
                                                         <th rowspan="1" colspan="1">Item Name</th>
                                                         <th rowspan="1" colspan="1">Brand</th>
                                                         <th rowspan="1" colspan="1">Category</th>
                                                         <th rowspan="1" colspan="1">Unit</th>
                                                         <th rowspan="1" colspan="1">Purchase Price</th>
+                                                        <th rowspan="1" colspan="1">Final Sales Price</th>
                                                         <th rowspan="1" colspan="1">Tax</th>
                                                         <th rowspan="1" colspan="1">Status</th>
-                                                        <th rowspan="1" colspan="1">Action</th></tr>
+                                                        <th rowspan="1" colspan="1">Action</th>
+                                                    </tr>
                                                     </thead>
                                                 <tbody>
-                                                    <tr role="row">   
-                                                            <td>IT0022</td>
-                                                            <td>Apple Earpods</td>
-                                                            <td>Apple</td>
-                                                            <td>Accessories</td>
-                                                            <td>Pieces</td>
-                                                            <td>12,000.00</td>
-                                                            <td>GST 18%<br>(Inclusive)</td>
+                                                    <tr role="row" v-for="(data,index) in itemData" v-bind:key="data.id">  
+                                                            <td> <img :src="'http://192.168.100.9/Project_Laravel/public/images/'+data.image" width=50 height=50 alt=""> </td> 
+                                                            <td>{{data.item_code}}</td>
+                                                            <td>{{data.item_name}}</td>
+                                                            <td>{{data.brand_name}}</td>
+                                                            <td>{{data.category_name}}</td>
+                                                            <td>{{data.unit_name}}</td>
+                                                            <td>{{data.purchase_price}}</td>
+                                                            <td>{{data.sales_price}}</td>
+                                                            <td>{{data.tax_id}}%<br>({{  data.tax_type }})</td>
                                                             <td><span  class="label label-success" style="cursor:pointer">Active </span></td>
                                                             <td><div class="btn-group" title="View Account">
                                                             <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
@@ -93,7 +98,7 @@
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a style="cursor:pointer" title="Delete Record ?">
+                                                                    <a style="cursor:pointer" title="Delete Record ?" href="#" @click="deleteData(data.id,index)">
                                                                         <i class="fa fa-fw fa-trash text-red"></i>Delete
                                                                     </a>
                                                                 </li>
@@ -101,123 +106,6 @@
                                                         </div>
                                                         </td>
                                                     </tr>
-
-                                                    <tr role="row">   
-                                                            <td>IT0022</td>
-                                                            <td>Apple Earpods</td>
-                                                            <td>Apple</td>
-                                                            <td>Accessories</td>
-                                                            <td>Pieces</td>
-                                                            <td>12,000.00</td>
-                                                            <td>GST 18%<br>(Inclusive)</td>
-                                                            <td><span  class="label label-success" style="cursor:pointer">Active </span></td>
-                                                            <td><div class="btn-group" title="View Account">
-                                                            <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                Action <span class="caret"></span>
-                                                            </a>
-                                                            <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                <li>
-                                                                    <a title="Edit Record ?" href="#">
-                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a style="cursor:pointer" title="Delete Record ?">
-                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr role="row">   
-                                                            <td>IT0022</td>
-                                                            <td>Apple Earpods</td>
-                                                            <td>Apple</td>
-                                                            <td>Accessories</td>
-                                                            <td>Pieces</td>
-                                                            <td>12,000.00</td>
-                                                            <td>GST 18%<br>(Inclusive)</td>
-                                                            <td><span  class="label label-success" style="cursor:pointer">Active </span></td>
-                                                            <td><div class="btn-group" title="View Account">
-                                                            <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                Action <span class="caret"></span>
-                                                            </a>
-                                                            <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                <li>
-                                                                    <a title="Edit Record ?" href="#">
-                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a style="cursor:pointer" title="Delete Record ?">
-                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr role="row">   
-                                                            <td>IT0022</td>
-                                                            <td>Apple Earpods</td>
-                                                            <td>Apple</td>
-                                                            <td>Accessories</td>
-                                                            <td>Pieces</td>
-                                                            <td>12,000.00</td>
-                                                            <td>GST 18%<br>(Inclusive)</td>
-                                                            <td><span  class="label label-success" style="cursor:pointer">Active </span></td>
-                                                            <td><div class="btn-group" title="View Account">
-                                                            <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                Action <span class="caret"></span>
-                                                            </a>
-                                                            <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                <li>
-                                                                    <a title="Edit Record ?" href="#">
-                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a style="cursor:pointer" title="Delete Record ?">
-                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr role="row">   
-                                                            <td>IT0022</td>
-                                                            <td>Apple Earpods</td>
-                                                            <td>Apple</td>
-                                                            <td>Accessories</td>
-                                                            <td>Pieces</td>
-                                                            <td>12,000.00</td>
-                                                            <td>GST 18%<br>(Inclusive)</td>
-                                                            <td><span  class="label label-success" style="cursor:pointer">Active </span></td>
-                                                            <td><div class="btn-group" title="View Account">
-                                                            <a class="btn btn-primary btn-o dropdown-toggle" data-toggle="dropdown" href="#">
-                                                                Action <span class="caret"></span>
-                                                            </a>
-                                                            <ul role="menu" class="dropdown-menu dropdown-light pull-right">
-                                                                <li>
-                                                                    <a title="Edit Record ?" href="#">
-                                                                        <i class="fa fa-fw fa-edit text-blue"></i>Edit
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a style="cursor:pointer" title="Delete Record ?">
-                                                                        <i class="fa fa-fw fa-trash text-red"></i>Delete
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        </td>
-                                                    </tr>
-
                                                 </tbody>
                                                     
                                                     </table>
@@ -252,14 +140,47 @@
 import Navbar from  '../../components/Navbar.vue'
 import Sidebar from '../../components/Sidebar.vue'
 import Footer from  '../../components/Footer.vue'
+import axios from 'axios'
 
 export default {
     name:'',
+    data(){
+        return{
+            itemData:[]
+        }
+    },
     components: {
-    Navbar,
-    Sidebar,
-    Footer
-}
-
+        Navbar,
+        Sidebar,
+        Footer
+    },
+    mounted(){
+        this.getitemsData();
+    },
+    methods:{
+        getitemsData: function(){
+            axios.get("http://192.168.100.9/Project_Laravel/public/api/item")
+                // return promise
+            .then((res)=>{
+                this.itemData=res.data;
+                    console.log(res.data);
+            })
+                // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },
+        deleteData: function(id,index) {
+            this.itemData.splice(index,1)
+            axios.delete('http://192.168.100.9/Project_Laravel/public/api/item/' + id)
+            .then((res)=>{
+                console.log(res);
+            })
+            // catch error
+            .catch(error =>{
+                console.log(error)
+            });
+        },
+    }
 }
 </script>

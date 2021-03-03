@@ -20,7 +20,7 @@
                                         </div>                  
                                         <!-- alert end -->
                                         <!---Start  Print Card -->
-                                        <div class="container-fluid">
+                                        <div class="container-fluid" >
                                             <div class="card text-center">
                                                 <div class="card-header">
                                                     <div class="form-group w-50 d-flex mx-auto">
@@ -33,7 +33,7 @@
                                                                 <input type="text" class="form-control" placeholder="Item name/Barcode/Itemcode" >
                                                             </div>
                                                     </div>           
-                                                    <table class="table container table-bordered" style="width: 60%;">
+                                                    <table class="table container table-bordered" style="width: 60%;" id="printableArea">
                                                         <thead class="custom_thead">
                                                             <tr class="bg-primary">
                                                             <th rowspan="2" style="width:45%">Item Name</th>
@@ -45,15 +45,17 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="total">
-                                                        <h1 class="display-4">Total</h1>
+                                                        <h1 class="">Total</h1>
                                                         <p class="text-success display-4 text-bold">0</p>
                                                     </div>
                                                     <button class="btn btn-danger w-25">Preview</button>
                                                     &nbsp;
-                                                    <button class="btn btn-warning w-25">Close</button>
+                                                    <button class="btn btn-warning w-25">
+                                                        <a href="/" class="text-light">Close</a>
+                                                        </button>
                                                 </div>
                                                 <div class="card-footer border-top border-primary">
-                                                    <button class="btn btn-primary float-right">Print</button>                
+                                                    <button class="btn btn-primary float-right"  @click="print()">Print</button>                
                                                 </div>
                                             </div>
                                         </div>
@@ -80,6 +82,19 @@ export default {
     Navbar,
     Sidebar,
     Footer
+},
+mounted(){
+    this.printDiv();
+
+},
+methods:{
+    print:function() {
+            let printContents = document.getElementById('printableArea').innerHTML;
+            let originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+            }
 }
 
 }
